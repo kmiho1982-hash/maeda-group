@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前田グループ｜造園・土木・建設</title>
+  <meta name="description" content="前田グループは造園・土木・建設の5社が連携する地域密着型グループです。公共・民間工事から緑化・維持管理まで一貫対応。有資格者が責任ある施工をお約束します。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky: #b8ddf0;
+      --sky-deep: #5aadd4;
+      --sky-light: #e8f6fd;
+      --white: #ffffff;
+      --ink: #1a2e3a;
+      --ink-light: #3a5568;
+      --green-dark: #1b4332;
+      --green-mid: #2d6a4f;
+      --green-light: #52b788;
+      --gold: #c8a96e;
+      --navy: #1a3a5c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--sky-light);
+      min-height: 100vh;
+      color: var(--ink);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(180deg,
+          rgba(10,40,60,0.48) 0%,
+          rgba(10,40,30,0.22) 50%,
+          rgba(10,40,20,0.58) 100%
+        ),
+        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&auto=format&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-sky-glow {
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(184,221,240,0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .group-badge {
+      display: inline-block;
+      background: rgba(184,221,240,0.18);
+      border: 1px solid rgba(184,221,240,0.5);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,0.78);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      font-weight: 300;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .group-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.4), 0 0 80px rgba(90,173,212,0.4);
+      animation: fadeDown 0.8s ease 0.15s both;
+    }
+
+    .group-tagline {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.3em;
+      font-weight: 300;
+      animation: fadeDown 0.8s ease 0.3s both;
+    }
+
+    .tagline-divider {
+      display: inline-block;
+      margin: 0 8px;
+      color: var(--sky-deep);
+      opacity: 0.8;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== 会社帯 ===== */
+    .companies-bar {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-top: 3px solid var(--sky-deep);
+      box-shadow: 0 4px 30px rgba(90,173,212,0.18);
+    }
+
+    .companies-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 20px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .companies-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .company-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 22px;
+      border: 1px solid rgba(90,173,212,0.22);
+      border-radius: 14px;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
+      min-width: 180px;
+      flex: 1;
+      max-width: 260px;
+      background: rgba(255,255,255,0.6);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .company-item:hover {
+      background: rgba(184,221,240,0.3);
+      box-shadow: 0 4px 20px rgba(90,173,212,0.18);
+      transform: translateY(-2px);
+    }
+
+    .company-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Shippori Mincho', serif;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    }
+
+    .icon-kensetsu { background: linear-gradient(135deg,#1a3a5c,#2d6a9f); color: #fff; }
+    .icon-zouen    { background: linear-gradient(135deg,#2d6a4f,#52b788); color: #fff; }
+    .icon-hoei     { background: linear-gradient(135deg,#7b3f00,#c07f3a); color: #fff; }
+    .icon-maeda    { background: linear-gradient(135deg,#1a2e3a,#4a7fa5); color: #fff; }
+    .icon-taishi   { background: linear-gradient(135deg,#1b4332,#40916c); color: #fff; }
+
+    .company-name {
+      font-size: 0.72rem;
+      color: var(--ink-light);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .company-name strong {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .company-item:nth-child(1) { animation-delay: 0.25s; }
+    .company-item:nth-child(2) { animation-delay: 0.35s; }
+    .company-item:nth-child(3) { animation-delay: 0.45s; }
+
+    /* ===== NAV ===== */
+    nav {
+      background: var(--sky-deep);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(90,173,212,0.35);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 20px;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-item {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      padding: 15px 22px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: block;
+      font-weight: 300;
+    }
+    .nav-item:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+    /* ===== 共通 ===== */
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.32em;
+      color: var(--sky-deep);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--ink);
+      margin-bottom: 40px;
+    }
+
+    /* ===== キャッチ ===== */
+    .catch-section { background: var(--white); padding: 88px 20px; }
+    .catch-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .catch-sub { font-size: 0.72rem; letter-spacing: 0.35em; color: var(--sky-deep); margin-bottom: 18px; }
+    .catch-main {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 26px;
+    }
+    .catch-body { font-size: 0.93rem; color: var(--ink-light); line-height: 2; }
+
+    /* ===== サービス ===== */
+    .services-section { background: var(--sky-light); padding: 88px 20px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+    .service-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 24px;
+      border: 1px solid rgba(90,173,212,0.14);
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 8px 30px rgba(90,173,212,0.2); transform: translateY(-4px); }
+    .service-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .service-card h3 { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 12px; }
+    .service-card p { font-size: 0.85rem; color: var(--ink-light); line-height: 1.85; }
+
+    /* ===== 数字 ===== */
+    .numbers-section {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      padding: 88px 20px;
+    }
+    .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+    .number-item {
+      padding: 30px 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+    }
+    .number-val { font-family: 'Shippori Mincho', serif; font-size: 2.8rem; color: #fff; font-weight: 700; }
+    .number-unit { font-size: 1rem; color: rgba(255,255,255,0.72); }
+    .number-item p { margin-top: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; }
+
+    /* ===== 施工事例 ===== */
+    .works-section { background: #fff; padding: 88px 20px; }
+    .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+    .work-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(90,173,212,0.14);
+      transition: box-shadow 0.25s;
+    }
+    .work-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .work-card.large { grid-row: span 2; display: flex; flex-direction: column; }
+    .work-img { width: 100%; height: 200px; flex-shrink: 0; }
+    .work-card.large .work-img { flex: 1; min-height: 260px; height: auto; }
+    .work-info { padding: 20px; }
+    .work-tag {
+      display: inline-block; font-size: 0.68rem;
+      background: var(--sky-light); color: var(--sky-deep);
+      border: 1px solid rgba(90,173,212,0.5);
+      border-radius: 20px; padding: 2px 12px;
+      margin-bottom: 10px; letter-spacing: 0.1em;
+    }
+    .work-info h3 { font-family: 'Shippori Mincho', serif; font-size: 1rem; color: var(--ink); margin-bottom: 8px; }
+    .work-info p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.75; }
+    .works-more { text-align: center; }
+    .btn-outline {
+      display: inline-block; padding: 12px 36px;
+      border: 2px solid var(--sky-deep); color: var(--sky-deep);
+      border-radius: 30px; font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .btn-outline:hover { background: var(--sky-deep); color: #fff; }
+
+    /* ===== 採用 ===== */
+    .recruit-section {
+      background: linear-gradient(135deg, var(--navy), #2d6a9f);
+      padding: 88px 20px;
+    }
+    .recruit-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .recruit-text .section-label { color: rgba(255,255,255,0.55); }
+    .recruit-text .section-title { color: #fff; }
+    .recruit-text p { color: rgba(255,255,255,0.8); line-height: 1.95; font-size: 0.9rem; margin-bottom: 22px; }
+    .recruit-points { list-style: none; margin-bottom: 32px; }
+    .recruit-points li { color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-bottom: 10px; }
+    .btn-white {
+      display: inline-block; padding: 14px 36px;
+      background: #fff; color: var(--navy);
+      border-radius: 30px; font-size: 0.88rem; font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .btn-white:hover { opacity: 0.85; }
+    .recruit-img img {
+      width: 100%; border-radius: 20px; object-fit: cover;
+      height: 340px; box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+    }
+
+    /* ===== お問い合わせ ===== */
+    .contact-section { background: var(--sky-light); padding: 88px 20px; }
+    .contact-desc { color: var(--ink-light); font-size: 0.93rem; margin-bottom: 38px; }
+    .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; padding: 16px 42px;
+      background: var(--sky-deep); color: #fff;
+      border-radius: 30px; font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-tel {
+      display: inline-block; padding: 16px 42px;
+      background: #fff; color: var(--ink);
+      border: 2px solid rgba(90,173,212,0.3);
+      border-radius: 30px; font-size: 0.9rem;
+      transition: border-color 0.2s;
+      text-decoration: none;
+    }
+    .btn-tel:hover { border-color: var(--sky-deep); }
+
+    /* ===== 資格セクション ===== */
+    .qualifications-section {
+      background: var(--ink);
+      padding: 80px 20px;
+    }
+    .qualifications-section .section-label { color: var(--sky-deep); }
+    .qualifications-section .section-title { color: #fff; margin-bottom: 12px; }
+
+    .qual-lead {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.95;
+      margin-bottom: 48px;
+    }
+
+    .qual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .qual-block {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .qual-block-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .qual-block-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .icon-bg-green { background: linear-gradient(135deg, var(--green-dark), var(--green-light)); }
+    .icon-bg-blue  { background: linear-gradient(135deg, var(--navy), #4a7fa5); }
+
+    .qual-block-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .qual-rows { padding: 8px 0; }
+
+    .qual-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .qual-row:last-child { border-bottom: none; }
+
+    .qual-name {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+
+    .qual-grade { display: flex; gap: 6px; }
+
+    .grade-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .grade-1 { background: var(--gold); color: #fff; }
+    .grade-2 { background: rgba(184,221,240,0.25); color: var(--sky); border: 1px solid rgba(184,221,240,0.4); }
+
+    .qual-count {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.42);
+      white-space: nowrap;
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .qual-note {
+      margin-top: 36px;
+      padding: 16px 22px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+      border-left: 3px solid var(--sky-deep);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.95;
+    }
+
+    /* ===== フッター ===== */
+    footer { background: #111e27; padding: 52px 20px 28px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1.5rem; color: #fff; margin-bottom: 24px; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.8rem; letter-spacing: 0.08em; transition: color 0.2s; text-decoration: none; }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.12); margin: 0 auto 24px; }
+    .footer-companies { font-size: 0.72rem; color: rgba(255,255,255,0.28); margin-bottom: 22px; line-height: 2.2; }
+    .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 768px) {
+      header { height: 380px; }
+      .company-item { min-width: 140px; padding: 14px 12px; }
+      .nav-item { font-size: 0.75rem; padding: 13px 14px; }
+      .works-grid { grid-template-columns: 1fr; }
+      .work-card.large { grid-row: span 1; }
+      .recruit-inner { grid-template-columns: 1fr; gap: 32px; }
+      .recruit-img { display: none; }
+      .qual-grid { grid-template-columns: 1fr; }
+      .qual-count { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="hero-bg"></div>
+    <div class="hero-sky-glow"></div>
+    <div class="hero-content">
+      <div class="group-badge">MAEDA GROUP</div>
+      <h1 class="group-name">前田グループ</h1>
+      <p class="group-tagline">
+        造園<span class="tagline-divider">・</span>土木<span class="tagline-divider">・</span>建設<span class="tagline-divider">・</span>合同会社
+      </p>
+    </div>
+  </header>
+
+  <!-- 会社帯 -->
+  <div class="companies-bar">
+    <div class="companies-inner">
+      <div class="companies-row">
+        <div class="company-item">
+          <div class="company-icon icon-kensetsu">建</div>
+          <div class="company-name"><strong>前田建設株式会社</strong>Construction</div>
+        </div>
+        <div class="company-item">
+          <div class="company-icon icon-zouen">造</div>
+          <div class="company-name"><strong>有限会社前田造園</strong>Landscape</div>
+        </div>
+      </div>
+      <div class="companies-row">
+        <div class="company-item">
+          <div class="company-icon icon-hoei">豊</div>
+          <div class="company-name"><strong>豊栄建設株式会社</strong>Construction</div>
+        </div>
+        <div class="company-item">
+          <div class="company-icon icon-maeda">M</div>
+          <div class="company-name"><strong>株式会社マエダ</strong>Maeda Co., Ltd.</div>
+        </div>
+        <div class="company-item">
+          <div class="company-icon icon-taishi">大</div>
+          <div class="company-name"><strong>株式会社大志造園土木</strong>Taishi Landscape</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ナビ -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-item" href="#about">グループについて</a>
+      <a class="nav-item" href="#services">事業内容</a>
+      <a class="nav-item" href="#works">施工事例</a>
+      <a class="nav-item" href="#recruit">採用情報</a>
+      <a class="nav-item" href="#contact">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <!-- キャッチ -->
+  <section class="catch-section" id="about">
+    <div class="catch-inner">
+      <p class="catch-sub">MAEDA GROUP</p>
+      <h2 class="catch-main">大地に根ざし、<br>未来をつくる。</h2>
+      <p class="catch-body">造園・土木・建設の専門集団として、地域の自然と暮らしを支え続けてきた前田グループ。5社が連携し、小さな庭から大規模公共工事まで、幅広い実績で信頼にお応えします。</p>
+    </div>
+  </section>
+
+  <!-- 事業内容 -->
+  <section class="services-section" id="services">
+    <div class="section-inner">
+      <div class="section-label">SERVICES</div>
+      <h2 class="section-title">事業内容</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🌳</div>
+          <h3>造園・緑化</h3>
+          <p>庭園設計・施工から公園整備まで。植栽管理・剪定・芝生工事など、緑に関わるすべてをワンストップで対応します。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>土木工事</h3>
+          <p>道路・排水・擁壁・造成工事など、地域インフラを支える土木工事全般を手がけます。官民問わず豊富な実績があります。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>建設工事</h3>
+          <p>一般建築から外構・エクステリア工事まで対応。グループ各社の連携により、複合的なニーズにもスムーズに対応できます。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌿</div>
+          <h3>維持管理</h3>
+          <p>施工後のアフターフォローも充実。定期的な植栽管理・施設維持管理契約で、長期的なお付き合いをお約束します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- グループの強み -->
+  <section class="numbers-section">
+    <div class="section-inner">
+      <div class="section-label" style="color:rgba(255,255,255,0.55);">ABOUT US</div>
+      <h2 class="section-title" style="color:#fff;">グループの強み</h2>
+      <div class="numbers-grid">
+        <div class="number-item">
+          <span class="number-val">5</span><span class="number-unit">社</span>
+          <p>グループ会社数</p>
+        </div>
+        <div class="number-item">
+          <span class="number-val">30</span><span class="number-unit">年以上</span>
+          <p>地域での実績</p>
+        </div>
+        <div class="number-item">
+          <span class="number-val">官民</span><span class="number-unit">両対応</span>
+          <p>公共・民間工事</p>
+        </div>
+        <div class="number-item">
+          <span class="number-val">一貫</span><span class="number-unit">体制</span>
+          <p>設計から維持管理まで</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 施工事例 -->
+  <section class="works-section" id="works">
+    <div class="section-inner">
+      <div class="section-label">WORKS</div>
+      <h2 class="section-title">施工事例</h2>
+      <div class="works-grid">
+        <div class="work-card large">
+          <div class="work-img" style="background:linear-gradient(135deg,#2d6a4f,#74c69d);"></div>
+          <div class="work-info">
+            <span class="work-tag">造園</span>
+            <h3>○○公園 緑化整備工事</h3>
+            <p>市内大型公園の植栽リニューアル。高木移植・芝生張り替え・花壇整備を含む大規模プロジェクト。</p>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-img" style="background:linear-gradient(135deg,#1a3a5c,#4a7fa5);"></div>
+          <div class="work-info">
+            <span class="work-tag">土木</span>
+            <h3>市道舗装改良工事</h3>
+            <p>生活道路の舗装打ち替え・排水整備工事。</p>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-img" style="background:linear-gradient(135deg,#7b3f00,#c07f3a);"></div>
+          <div class="work-info">
+            <span class="work-tag">建設</span>
+            <h3>外構・エクステリア工事</h3>
+            <p>新築住宅の庭・駐車場・フェンス一式施工。</p>
+          </div>
+        </div>
+      </div>
+      <div class="works-more">
+        <a class="btn-outline" href="works.html">施工事例をもっと見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 採用 -->
+  <section class="recruit-section" id="recruit">
+    <div class="recruit-inner">
+      <div class="recruit-text">
+        <div class="section-label">RECRUIT</div>
+        <h2 class="section-title">仲間を募集しています</h2>
+        <p>造園・土木・建設のプロとして、地域の未来をともにつくりませんか。経験者・未経験者ともに歓迎。グループ内でのキャリアアップも可能です。</p>
+        <ul class="recruit-points">
+          <li>✅ 未経験者歓迎・丁寧な研修あり</li>
+          <li>✅ グループ内でのキャリアアップ</li>
+          <li>✅ 地域に根ざした安定した仕事</li>
+          <li>✅ 資格取得支援制度あり</li>
+        </ul>
+        <a class="btn-white" href="recruit.html">採用情報を見る</a>
+      </div>
+      <div class="recruit-img">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="現場スタッフ">
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner" style="text-align:center;">
+      <div class="section-label">CONTACT</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="contact-desc">造園・土木・建設に関するご相談はお気軽にどうぞ。お見積もりは無料です。</p>
+      <div class="contact-buttons">
+        <a class="btn-primary" href="contact.html">📋 お問い合わせフォーム</a>
+        <a class="btn-tel" href="tel:0X0XXXXXXXX">📞 TEL: 0X0-XXXX-XXXX</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 資格・認定（フッター直前） -->
+  <section class="qualifications-section" id="qualifications">
+    <div class="section-inner">
+      <div class="section-label">QUALIFICATIONS</div>
+      <h2 class="section-title">保有資格</h2>
+      <p class="qual-lead">
+        前田グループは、造園・土木の国家資格者を多数擁しています。<br>
+        有資格者が現場を直接管理することで、安全・高品質な施工をお約束します。
+      </p>
+
+      <div class="qual-grid">
+
+        <!-- 造園施工管理技士 -->
+        <div class="qual-block">
+          <div class="qual-block-header">
+            <div class="qual-block-icon icon-bg-green">🌿</div>
+            <div class="qual-block-name">造園施工管理技士</div>
+          </div>
+          <div class="qual-rows">
+            <div class="qual-row">
+              <div class="qual-name">1級 造園施工管理技士</div>
+              <div class="qual-grade"><span class="grade-badge grade-1">1級</span></div>
+              <div class="qual-count">2名在籍</div>
+            </div>
+            <div class="qual-row">
+              <div class="qual-name">2級 造園施工管理技士</div>
+              <div class="qual-grade"><span class="grade-badge grade-2">2級</span></div>
+              <div class="qual-count">3名在籍</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 土木施工管理技士 -->
+        <div class="qual-block">
+          <div class="qual-block-header">
+            <div class="qual-block-icon icon-bg-blue">🏗️</div>
+            <div class="qual-block-name">土木施工管理技士</div>
+          </div>
+          <div class="qual-rows">
+            <div class="qual-row">
+              <div class="qual-name">1級 土木施工管理技士</div>
+              <div class="qual-grade"><span class="grade-badge grade-1">1級</span></div>
+              <div class="qual-count">2名在籍</div>
+            </div>
+            <div class="qual-row">
+              <div class="qual-name">2級 土木施工管理技士</div>
+              <div class="qual-grade"><span class="grade-badge grade-2">2級</span></div>
+              <div class="qual-count">4名在籍</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="qual-note">
+        ※ 人数は仮の数字です。実際の人数に変更してください。<br>
+        ※ 他に掲載したい資格があれば行を追加できます。お気軽にご相談ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">前田グループ</div>
+      <div class="footer-links">
+        <a href="#about">グループについて</a>
+        <a href="#services">事業内容</a>
+        <a href="#works">施工事例</a>
+        <a href="#recruit">採用情報</a>
+        <a href="#qualifications">保有資格</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-companies">
+        前田建設株式会社　／　有限会社前田造園　／　豊栄建設株式会社　／　株式会社マエダ　／　株式会社大志造園土木
+      </div>
+      <p class="footer-copy">© 2025 Maeda Group. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
