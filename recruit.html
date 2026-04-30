@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>採用情報｜前田グループ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sky-deep: #5aadd4; --sky-light: #e8f6fd;
+      --ink: #1a2e3a; --ink-light: #3a5568;
+      --green-dark: #1b4332; --green-mid: #2d6a4f; --green-light: #52b788;
+      --navy: #1a3a5c; --gold: #c8a96e; --white: #fff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: var(--sky-light); color: var(--ink); }
+
+    /* NAV */
+    nav { background: var(--sky-deep); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(90,173,212,0.35); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 20px; align-items: center; }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-logo { font-family: 'Shippori Mincho', serif; color: #fff; font-size: 1rem; letter-spacing: 0.1em; padding: 15px 22px 15px 0; text-decoration: none; white-space: nowrap; border-right: 1px solid rgba(255,255,255,0.2); margin-right: 8px; }
+    .nav-item { color: rgba(255,255,255,0.85); font-size: 0.82rem; letter-spacing: 0.1em; padding: 15px 18px; white-space: nowrap; text-decoration: none; display: block; font-weight: 300; transition: background 0.2s; }
+    .nav-item:hover, .nav-item.active { background: rgba(255,255,255,0.14); color: #fff; }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, var(--navy), #2d6a9f);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .page-header-label { font-size: 0.72rem; letter-spacing: 0.35em; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    .page-header-title { font-family: 'Shippori Mincho', serif; font-size: clamp(2rem,4vw,3rem); color: #fff; margin-bottom: 16px; }
+    .page-header-sub { font-size: 0.9rem; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; }
+
+    /* SECTION */
+    .section-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.32em; color: var(--sky-deep); margin-bottom: 8px; }
+    .section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--ink); margin-bottom: 36px; }
+
+    /* BENEFITS */
+    .benefits-section { background: var(--white); padding: 80px 20px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; margin-bottom: 48px; }
+    .benefit-card { background: var(--sky-light); border-radius: 16px; padding: 28px 20px; text-align: center; border: 1px solid rgba(90,173,212,0.18); }
+    .benefit-icon { font-size: 2rem; margin-bottom: 14px; }
+    .benefit-title { font-family: 'Shippori Mincho', serif; font-size: 1rem; color: var(--ink); margin-bottom: 8px; }
+    .benefit-desc { font-size: 0.82rem; color: var(--ink-light); line-height: 1.7; }
+
+    /* CAREER PATH */
+    .career-section { background: var(--sky-light); padding: 80px 20px; }
+    .career-steps { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .career-step { flex: 1; min-width: 160px; padding: 28px 20px; background: #fff; border: 1px solid rgba(90,173,212,0.18); position: relative; text-align: center; }
+    .career-step:not(:last-child)::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--sky-deep); z-index: 1; }
+    .career-step:first-child { border-radius: 14px 0 0 14px; }
+    .career-step:last-child  { border-radius: 0 14px 14px 0; }
+    .step-num { width: 28px; height: 28px; background: var(--sky-deep); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 0 auto 10px; }
+    .step-title { font-family: 'Shippori Mincho', serif; font-size: 0.9rem; color: var(--ink); margin-bottom: 6px; }
+    .step-desc { font-size: 0.75rem; color: var(--ink-light); line-height: 1.6; }
+
+    /* HERO IMAGE RECRUIT */
+    .recruit-hero { position: relative; height: 320px; overflow: hidden; }
+    .recruit-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .recruit-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,58,92,0.7) 0%, rgba(26,58,92,0.1) 60%); }
+    .recruit-hero-text { position: absolute; left: 48px; top: 50%; transform: translateY(-50%); }
+    .recruit-hero-text h2 { font-family: 'Shippori Mincho', serif; font-size: clamp(1.6rem,3vw,2.4rem); color: #fff; line-height: 1.4; }
+    .recruit-hero-text p { margin-top: 10px; font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+
+    /* INTERVIEW */
+    .interview-section { background: var(--white); padding: 80px 20px; }
+    .interview-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(90,173,212,0.15);
+      box-shadow: 0 4px 30px rgba(90,173,212,0.1);
+    }
+    .interview-header {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      padding: 32px 40px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .interview-photo-wrap { display: flex; gap: 12px; }
+    .interview-photo { width: 120px; height: 120px; border-radius: 16px; object-fit: cover; border: 3px solid rgba(255,255,255,0.3); flex-shrink: 0; }
+    .interview-profile { color: #fff; }
+    .interview-name { font-family: 'Shippori Mincho', serif; font-size: 1.6rem; margin-bottom: 6px; }
+    .interview-meta { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.8; }
+    .interview-tag { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); border-radius: 20px; padding: 2px 12px; font-size: 0.7rem; margin-top: 8px; }
+
+    .interview-body { padding: 40px; }
+    .qa-item { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(90,173,212,0.1); }
+    .qa-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .qa-question {
+      display: flex; gap: 14px; align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .q-badge { width: 28px; height: 28px; background: var(--sky-deep); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .a-badge { width: 28px; height: 28px; background: var(--green-mid); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .q-text { font-size: 0.9rem; font-weight: 500; color: var(--ink); line-height: 1.6; }
+    .qa-answer { display: flex; gap: 14px; align-items: flex-start; }
+    .a-text { font-size: 0.88rem; color: var(--ink-light); line-height: 1.9; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--navy), #2d6a9f); padding: 80px 20px; text-align: center; }
+    .cta-section h2 { font-family: 'Shippori Mincho', serif; font-size: clamp(1.5rem,3vw,2rem); color: #fff; margin-bottom: 16px; }
+    .cta-section p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 36px; line-height: 1.9; }
+    .btn-white { display: inline-block; padding: 14px 40px; background: #fff; color: var(--navy); border-radius: 30px; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; transition: opacity 0.2s; text-decoration: none; }
+    .btn-white:hover { opacity: 0.85; }
+
+    footer { background: #111e27; padding: 40px 20px 24px; text-align: center; }
+    .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 16px; }
+    .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
+
+    @media (max-width: 768px) {
+      .interview-header { flex-direction: column; padding: 24px; gap: 20px; }
+      .interview-photo-wrap { justify-content: center; }
+      .interview-body { padding: 24px; }
+      .career-steps { flex-direction: column; }
+      .career-step { border-radius: 0; }
+      .career-step:first-child { border-radius: 14px 14px 0 0; }
+      .career-step:last-child  { border-radius: 0 0 14px 14px; }
+      .career-step:not(:last-child)::after { content: '↓'; right: 50%; bottom: -14px; top: auto; transform: translateX(50%); }
+      .recruit-hero-text { left: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">前田グループ</a>
+      <a class="nav-item" href="index.html#about">グループについて</a>
+      <a class="nav-item" href="index.html#services">事業内容</a>
+      <a class="nav-item" href="works.html">施工事例</a>
+      <a class="nav-item active">採用情報</a>
+      <a class="nav-item" href="index.html#contact">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <!-- ページヘッダー -->
+  <div class="page-header">
+    <div class="page-header-label">RECRUIT</div>
+    <h1 class="page-header-title">採用情報</h1>
+    <p class="page-header-sub">前田グループで、緑とともに働きませんか</p>
+  </div>
+
+  <!-- 大見出し画像 -->
+  <div class="recruit-hero">
+    <img src="川崎1.jpg" alt="現場スタッフ">
+    <div class="recruit-hero-overlay"></div>
+    <div class="recruit-hero-text">
+      <h2>仲間を<br>募集しています</h2>
+      <p>経験者・未経験者、どちらも歓迎です</p>
+    </div>
+  </div>
+
+  <!-- 待遇・福利厚生 -->
+  <section class="benefits-section">
+    <div class="section-inner">
+      <div class="section-label">BENEFITS</div>
+      <h2 class="section-title">待遇・福利厚生</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <div class="benefit-title">年次昇給あり</div>
+          <div class="benefit-desc">頑張りをしっかり評価。毎年昇給の機会があります。</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🗓️</div>
+          <div class="benefit-title">週休二日制</div>
+          <div class="benefit-desc">オンオフのメリハリをつけて働ける環境です。</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎁</div>
+          <div class="benefit-title">ボーナス年2回</div>
+          <div class="benefit-desc">夏・冬の賞与で、モチベーション高く働けます。</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏖️</div>
+          <div class="benefit-title">有給休暇取得</div>
+          <div class="benefit-desc">有給休暇をしっかり取得できる職場環境です。</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎓</div>
+          <div class="benefit-title">資格取得支援</div>
+          <div class="benefit-desc">造園・土木施工管理技士などの資格取得を会社がサポート。</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌱</div>
+          <div class="benefit-title">キャリアアップ</div>
+          <div class="benefit-desc">グループ5社内でのステップアップや異動も可能です。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- キャリアパス -->
+  <section class="career-section">
+    <div class="section-inner">
+      <div class="section-label">CAREER PATH</div>
+      <h2 class="section-title">キャリアパス</h2>
+      <div class="career-steps">
+        <div class="career-step">
+          <div class="step-num">1</div>
+          <div class="step-title">入社・研修</div>
+          <div class="step-desc">先輩社員と一緒に現場を学ぶ。未経験でも安心。</div>
+        </div>
+        <div class="career-step">
+          <div class="step-num">2</div>
+          <div class="step-title">独り立ち</div>
+          <div class="step-desc">担当エリアを持ち、技術を磨く。</div>
+        </div>
+        <div class="career-step">
+          <div class="step-num">3</div>
+          <div class="step-title">資格取得</div>
+          <div class="step-desc">造園・土木施工管理技士などに挑戦。</div>
+        </div>
+        <div class="career-step">
+          <div class="step-num">4</div>
+          <div class="step-title">現場代理人</div>
+          <div class="step-desc">大型公共工事の現場を任される。</div>
+        </div>
+        <div class="career-step">
+          <div class="step-num">5</div>
+          <div class="step-title">リーダー・管理職</div>
+          <div class="step-desc">チームをまとめ、会社を支える存在へ。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 社員インタビュー -->
+  <section class="interview-section">
+    <div class="section-inner">
+      <div class="section-label">STAFF INTERVIEW</div>
+      <h2 class="section-title">社員の声</h2>
+
+      <div class="interview-card">
+        <div class="interview-header">
+          <div class="interview-photo-wrap">
+            <img class="interview-photo" src="川崎2.jpg" alt="川崎さん">
+            <img class="interview-photo" src="川崎3.jpg" alt="川崎さん 現場">
+          </div>
+          <div class="interview-profile">
+            <div class="interview-name">川崎　さん</div>
+            <div class="interview-meta">
+              勤続5年目<br>
+              現場代理人（大阪市 大規模工事担当）<br>
+              前職：銀行員
+            </div>
+            <span class="interview-tag">造園施工管理技士1級 取得目標</span>
+          </div>
+        </div>
+
+        <div class="interview-body">
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <div class="q-badge">Q</div>
+              <div class="q-text">前職は銀行員だったそうですね。転職のきっかけは？</div>
+            </div>
+            <div class="qa-answer">
+              <div class="a-badge">A</div>
+              <div class="a-text">銀行の仕事も充実していましたが、もっと体を動かして、自然に関わる仕事がしたいという気持ちがずっとありました。前田グループに入ってからは、毎日外で緑に触れながら働けて、前職と比べてストレスが圧倒的に減りました。身体を動かすと気持ちいいんですよ（笑）。</div>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <div class="q-badge">Q</div>
+              <div class="q-text">仕事のなかで特に楽しいことは？</div>
+            </div>
+            <div class="qa-answer">
+              <div class="a-badge">A</div>
+              <div class="a-text">剪定がすごく面白いです。同じ木でも、担当する人によって仕上がりが全然変わる。高い木の剪定は正直怖さもありますが、それだけにやりがいがあります。あと、公園の新設工事に携わったときは本当に嬉しかった。完成した公園がずっと残って、子供たちが遊んでいるのを見ると、「この仕事をしていてよかった」と心から思います。</div>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <div class="q-badge">Q</div>
+              <div class="q-text">現在の仕事の状況を教えてください。</div>
+            </div>
+            <div class="qa-answer">
+              <div class="a-badge">A</div>
+              <div class="a-text">今は大阪市の大きな工事で現場代理人を任せてもらっています。入社5年で現場代理人になれたのは、会社が若い人にどんどん機会を与えてくれるからだと思います。最近は結婚もして、10日間の新婚旅行にも行かせてもらいました。プライベートも充実しています。</div>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <div class="q-badge">Q</div>
+              <div class="q-text">今後の目標を聞かせてください。</div>
+            </div>
+            <div class="qa-answer">
+              <div class="a-badge">A</div>
+              <div class="a-text">今年は造園施工管理技士1級の取得を目指しています。会社も資格取得をサポートしてくれるので、しっかり勉強したい。これからもっと新しい仲間を迎えて、チームとして会社を大きくしていきたいですね。未経験でも絶対大丈夫なので、ぜひ一緒に働きましょう！</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-inner">
+      <h2>一緒に働きませんか？</h2>
+      <p>
+        経験・未経験問わず歓迎しています。<br>
+        まずはお気軽にお問い合わせください。
+      </p>
+      <a class="btn-white" href="index.html#contact">📋 応募・お問い合わせはこちら</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">前田グループ</div>
+    <p class="footer-copy">© 2025 Maeda Group. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

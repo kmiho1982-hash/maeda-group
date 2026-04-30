@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>施工事例｜前田グループ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sky-deep: #5aadd4; --sky-light: #e8f6fd;
+      --ink: #1a2e3a; --ink-light: #3a5568;
+      --green-dark: #1b4332; --green-mid: #2d6a4f;
+      --navy: #1a3a5c; --gold: #c8a96e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: var(--sky-light); color: var(--ink); }
+
+    /* NAV */
+    nav { background: var(--sky-deep); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(90,173,212,0.35); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 20px; align-items: center; }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-logo { font-family: 'Shippori Mincho', serif; color: #fff; font-size: 1rem; letter-spacing: 0.1em; padding: 15px 22px 15px 0; text-decoration: none; white-space: nowrap; border-right: 1px solid rgba(255,255,255,0.2); margin-right: 8px; }
+    .nav-item { color: rgba(255,255,255,0.85); font-size: 0.82rem; letter-spacing: 0.1em; padding: 15px 18px; white-space: nowrap; text-decoration: none; display: block; font-weight: 300; transition: background 0.2s; }
+    .nav-item:hover, .nav-item.active { background: rgba(255,255,255,0.14); color: #fff; }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .page-header-label { font-size: 0.72rem; letter-spacing: 0.35em; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    .page-header-title { font-family: 'Shippori Mincho', serif; font-size: clamp(2rem,4vw,3rem); color: #fff; }
+
+    /* MAIN */
+    .works-main { max-width: 1000px; margin: 0 auto; padding: 64px 20px 80px; }
+
+    .year-block { margin-bottom: 60px; }
+    .year-heading {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 20px;
+    }
+    .year-label {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.5rem; color: var(--ink); font-weight: 700;
+      white-space: nowrap;
+    }
+    .year-line { flex: 1; height: 1px; background: rgba(90,173,212,0.3); }
+
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(90,173,212,0.1); }
+    thead tr { background: var(--sky-light); }
+    th { padding: 12px 16px; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--sky-deep); font-weight: 500; text-align: left; border-bottom: 2px solid rgba(90,173,212,0.2); }
+    td { padding: 13px 16px; font-size: 0.82rem; color: var(--ink-light); border-bottom: 1px solid rgba(90,173,212,0.08); vertical-align: top; line-height: 1.6; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(232,246,253,0.5); }
+    td:first-child { color: var(--ink); font-weight: 400; white-space: nowrap; }
+    .company-tag { display: inline-block; font-size: 0.68rem; background: var(--sky-light); color: var(--sky-deep); border: 1px solid rgba(90,173,212,0.4); border-radius: 20px; padding: 2px 10px; white-space: nowrap; }
+
+    .back-btn-wrap { text-align: center; margin-top: 48px; }
+    .btn-outline { display: inline-block; padding: 12px 36px; border: 2px solid var(--sky-deep); color: var(--sky-deep); border-radius: 30px; font-size: 0.88rem; letter-spacing: 0.1em; transition: background 0.2s, color 0.2s; text-decoration: none; }
+    .btn-outline:hover { background: var(--sky-deep); color: #fff; }
+
+    footer { background: #111e27; padding: 40px 20px 24px; text-align: center; }
+    .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 16px; }
+    .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      td { padding: 8px 14px; }
+      td:first-child { padding-top: 14px; font-weight: 500; color: var(--ink); }
+      tr { border-bottom: 1px solid rgba(90,173,212,0.15); padding-bottom: 8px; margin-bottom: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">前田グループ</a>
+      <a class="nav-item" href="index.html#about">グループについて</a>
+      <a class="nav-item" href="index.html#services">事業内容</a>
+      <a class="nav-item active">施工事例</a>
+      <a class="nav-item" href="recruit.html">採用情報</a>
+      <a class="nav-item" href="index.html#contact">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-label">WORKS</div>
+    <h1 class="page-header-title">施工事例</h1>
+  </div>
+
+  <main class="works-main">
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">令和7年度</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>堺市</td><td>東区役所樹木管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>東区役所樹木管理業務　枯損木伐採</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>協立技研㈱</td><td>さざなみプラザ外9団地総合改修工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪府（枚方土木）</td><td>山田池公園　自由広場等改修工事（その2）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和7年度　大和川両岸道路路肩除草清掃業務委託</td><td><span class="company-tag">㈲植正園</span></td></tr>
+          <tr><td>都市整備局</td><td>令和7年度都市整備局住宅事業用地等維持管理業務委託-3</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>豊崎中学校フェンス改修工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和7年度真田山公園事務所管内街路樹維持工事</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>令和7年度大阪城公園事務所管内街路樹維持工事ー2</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和7年度大阪城公園事務所管内一円公園除草業務委託-3</td><td><span class="company-tag">中西造園㈱</span></td></tr>
+          <tr><td>熊取町</td><td>都市公園等除草工事（R7-9）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>ハーベストの丘駐車場のり面除草ほか業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市</td><td>令和7年度大阪港内道路標識補修工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>細江川親水施設補修工事-3</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和7年度　八幡屋公園事務所管内公園改修工事-2</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">令和6年度</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>独）都市再生機構</td><td>令和5・6年度大阪駅北（2期）地区に係る維持保全（緊急）工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>堺市</td><td>東区役所樹木管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>臨海1号線ほか街路樹（樹木）管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>府道大阪臨海線ほか街路樹（樹木）管理業務</td><td><span class="company-tag">㈱大志造園土木</span></td></tr>
+          <tr><td>阪南高等学校</td><td>校内芝刈、草刈、薬剤散布等業務委託</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>公財）堺市文化振興財団</td><td>堺市栂文化会館　周辺管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市</td><td>令和6年度公共施設等の植物育成にかかる樹木維持工事</td><td><span class="company-tag">㈲植正園</span></td></tr>
+          <tr><td>大阪市</td><td>令和6年度八幡屋公園事務所管内街路樹維持工事-2</td><td><span class="company-tag">ミナミ庭園㈲</span></td></tr>
+          <tr><td>大阪市</td><td>令和6年度　大阪城公園事務所管内公園フェンス改修工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>八尾土木事務所</td><td>主要地方道大阪中央環状線外街路樹剪定枝チップ化業務（単価契約）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪府（池田土木）</td><td>服部緑地　北地区暫定整備工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪府（大阪港湾局）</td><td>堺泉北港　泉北7区　緑地補修工事</td><td><span class="company-tag">中西造園㈱・㈲前田造園</span></td></tr>
+          <tr><td>大阪府（枚方土木）</td><td>山田池公園　自由広場等改修工事（その2）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市住まい公社</td><td>大阪市営住宅緊急補修（緊急小補修工事）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>04-南港ひかりの他12団地植物管理工事（05-1）</td><td><span class="company-tag">M・H建設</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>04-都島リバーシティ他15団地植物管理工事（05-1）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>04-金剛他6団地植物管理工事（05-1）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>日本総合住生活㈱</td><td>04-武庫川他22団地植物管理工事（05-1）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">令和5年度</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>大阪市</td><td>令和5年度長居公園事務所管内一円公園除草業務委託（概算契約）-1</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>公財）堺市文化振興財団</td><td>堺市民芸術文化ホール樹木管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>民間</td><td>長居第2住宅1.2.3.4号棟除草及び低木剪定業務</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>民間</td><td>長居第2住宅1.2.4.5号棟除草及び低木剪定業務</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>梅田住宅管理センター管内市営住宅樹木管理業務委託（A地域）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪府</td><td>管理地　除草業務（その1）</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>九条幼稚園北側フェンス改修工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和5年度八幡屋公園事務所管内街路樹維持工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>臨港緑地内樹木撤去工事（その2）</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>堺市</td><td>浅香山緑道整備工事（第２期）</td><td><span class="company-tag">前田造園・前田建設JV</span></td></tr>
+          <tr><td>東住吉支援学校</td><td>樹木剪定委託業務</td><td><span class="company-tag">㈱大志造園土木</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>令和5・6年度大阪駅北（2期）地区に係る維持保全（緊急）工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪府</td><td>都市計画道路　堺松原線　用地管理工事</td><td><span class="company-tag">㈱大志造園土木</span></td></tr>
+          <tr><td>今宮工科高等学校</td><td>草刈り及び樹木剪定業務委託</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>住之江区咲州R岸壁ソーラスフェンス等設置工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>門真市</td><td>公共樹剪定及び除草業務委託</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>堺聴覚支援学校</td><td>校内樹木剪定業務</td><td><span class="company-tag">㈱大志造園土木</span></td></tr>
+          <tr><td>堺市</td><td>東区役所樹木管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>臨海1号線ほか街路樹（樹木）管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>府道大阪臨海線ほか街路樹（樹木）管理業務</td><td><span class="company-tag">㈱大志造園土木</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">令和4年度</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>大阪市</td><td>令和4年度　淀川両岸道路肩除草清掃業務委託</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市水道局</td><td>令和4年度　庭窪浄水場外1箇所除草等業務委託</td><td><span class="company-tag">組合</span></td></tr>
+          <tr><td>大阪府</td><td>主要地方道　大阪中央環状線　街路樹管理業務（その2）</td><td><span class="company-tag">組合</span></td></tr>
+          <tr><td>大阪市</td><td>令和４年度都市整備局住宅地区改良事業用地等維持管理業務委託（その1）</td><td><span class="company-tag">㈲植正園・前田建設㈱</span></td></tr>
+          <tr><td>公財）堺市文化振興財団</td><td>堺市民芸術文化ホール樹木管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府財務部</td><td>管理地　除草・伐竹業務</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（西側地域）-2</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）-2</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪府立今宮工科高校</td><td>樹木（低木）剪定及び草刈り業務委託</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪府</td><td>浜寺公園　中央花壇周辺改修工事（R4）</td><td><span class="company-tag">中西造園㈱・豊栄建設㈱</span></td></tr>
+          <tr><td>熊取町役場</td><td>道路除草工事（R4-3）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>近畿管区警察学校</td><td>近畿管区警察学校防草シート設置等作業</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>東住吉支援学校</td><td>樹木剪定委託業務</td><td><span class="company-tag">㈱大志造園土木</span></td></tr>
+          <tr><td>堺聴覚支援学校</td><td>樹木剪定、伐採等業務</td><td><span class="company-tag">㈱大志造園土木</span></td></tr>
+          <tr><td>大阪市</td><td>新家公園改修工事</td><td><span class="company-tag">㈲植正園・㈲前田造園</span></td></tr>
+          <tr><td>大阪市</td><td>令和4年度高殿西第4住宅1号館植栽工事</td><td><span class="company-tag">㈲植正園・㈲前田造園</span></td></tr>
+          <tr><td>大阪市</td><td>平野市町抽水所外周植栽工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪市住まい公社</td><td>大阪市営住宅緊急補修（緊急小補修工事）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>04-南港ひかりの他12団地植物管理工事（04-1）</td><td><span class="company-tag">前田建設㈱・豊栄建設㈱</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>04-都島リバーシティ他15団地植物管理工事（04-1）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>04-金剛他6団地植物管理工事（04-1）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>日本総合住生活㈱</td><td>04-武庫川他22団地植物管理工事（04-1）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">令和3年度</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>大阪府</td><td>一般国道170号外街路樹管理業務（その2）（R3富田林事務所）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府</td><td>令和3年度大阪府咲洲庁舎敷地内樹木管理等業務</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>堺市文化振興財団</td><td>堺市民芸術文化ホール樹木管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（西側地域）</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>近畿地方整備局</td><td>国営飛鳥歴史公園高松塚周辺地区園路広場修繕他工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和3年度公共施設等の植物育成にかかる樹木維持工事</td><td><span class="company-tag">㈲植正園・前田建設㈱</span></td></tr>
+          <tr><td>うめきた都市再生事務所</td><td>うめきた（2期）地区ミスト設置・撤去（機材リース代含む）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>近畿地方整備局</td><td>国営飛鳥歴史公園案内サイン改修他工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>宰相山公園改修工事</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>令和3年度萩之茶屋第2住宅1号館植栽工事</td><td><span class="company-tag">大志造園土木</span></td></tr>
+          <tr><td>大阪府立今宮工科高校</td><td>草刈り及び樹木剪定業務委託</td><td><span class="company-tag">大志造園土木</span></td></tr>
+          <tr><td>東住吉支援学校</td><td>樹木剪定他委託業務</td><td><span class="company-tag">大志造園土木</span></td></tr>
+          <tr><td>門真市</td><td>公共樹剪定業務委託（冬期）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和3年度臨港方面管理事務所樹木等維持作業業務委託</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>鳳高等学校</td><td>校内樹木剪定等作業業務委託</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td> </td><td>城山公園パーゴラ改修工事</td><td><span class="company-tag">㈱光緑園・㈲前田造園</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">令和2年度</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>大阪市</td><td>鶴見緑地公園事務所管内施設補修工事-2</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>令和2年度　東部方面管理事務所管内維持管理業務委託</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>令和2年度　南部方面管理事務所管内維持管理業務委託</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>堺市</td><td>府道大阪臨海線ほか街路樹（樹木）管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府</td><td>主要地方道　（新）美原太子線外　街路樹管理業務（その5）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（西側地域）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>堺市</td><td>堺市民芸術文化ホール樹木管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市</td><td>扇町公園事務所管内街路樹維持工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>真田山公園事務所管内街路樹更新その他工事</td><td><span class="company-tag">中西造園㈱</span></td></tr>
+          <tr><td>独）都市再生機構</td><td>02-大阪駅北（2期）地区歩行者通路ミスト設置・撤去工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>南部方面管理事務所管内フェンス設置その他工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>令和2年度　臨海方面管理事務所管内施設補修工事</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>鶴町住宅2号館植栽工事</td><td><span class="company-tag">組合</span></td></tr>
+          <tr><td>大阪市</td><td>築港深江線ほか2街路樹植栽工事</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>門真市</td><td>公共樹剪定業務委託</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">令和元年（平成31年）</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>大阪市</td><td>平成31年度大和川両岸道路肩除草清掃業務委託</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>堺市</td><td>街路樹（樹木）管理業務（南区）単価契約</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>桃山公園ほか樹木等管理業務委託</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>堺市</td><td>府道堺阪南線ほか街路樹（樹木）管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>平野住宅管理センター管内市営住宅樹木管理業務委託</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>十三公園事務所管内街路樹維持工事-2</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪府</td><td>日本万国博覧会記念公園　花の丘改修工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>長居公園事務所管内公園樹補植工事-3</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市</td><td>千島公園改修工事</td><td><span class="company-tag">㈲植正園</span></td></tr>
+          <tr><td>大阪市</td><td>長居公園事務所管内施設補修工事-3</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>堺市</td><td>野尻町けいとう公園ブロック塀改修工事</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>門真市</td><td>公共樹剪定業務委託（冬期）</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">平成30年</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>大阪市水道局</td><td>平成30年度豊野浄水場他1箇所除草等業務委託</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>堺市</td><td>街路樹管理業務（南区）単価契約</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府</td><td>大阪府総務部庁舎敷地内樹木管理等業務</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>平野住宅管理センター管内市営住宅樹木管理業務委託</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>大阪府</td><td>一級河川　正雀川管理柵設置工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>堺市</td><td>堺市民芸術文化ホール周辺整備工事に伴う植栽工事</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府</td><td>日本万国博覧会記念公園　花の丘改修工事</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府（富田林土木）</td><td>錦織公園　河内の里つつじの丘外改修工事その2</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市</td><td>天王寺動物園植栽その他工事</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>堺市</td><td>浅香山公園複合遊具等設置工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-block">
+      <div class="year-heading">
+        <div class="year-label">平成29年</div>
+        <div class="year-line"></div>
+      </div>
+      <table>
+        <thead><tr><th>発注者</th><th>工事名・業務名</th><th>施工会社</th></tr></thead>
+        <tbody>
+          <tr><td>近畿地方整備局</td><td>国営飛鳥歴史公園サイン設置工事</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府</td><td>大阪府総務部庁舎敷地内樹木管理等業務</td><td><span class="company-tag">㈱マエダ</span></td></tr>
+          <tr><td>堺市</td><td>若松台外街路樹管理業務</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪市住宅供給公社</td><td>阿倍野住宅管理センター管内市営住宅樹木管理業務委託（東側地域）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府住宅供給公社</td><td>大阪府営千里高野台住宅　法面除草工事</td><td><span class="company-tag">豊栄建設㈱</span></td></tr>
+          <tr><td>関西空港</td><td>平成29年度関西国際空港緑地維持作業</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>近畿管区警察学校</td><td>草刈等業務委託</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>大阪府</td><td>一般国道170号根上り対策植栽工事</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>東京都</td><td>街路樹冬期剪定委託（品川工区）その1</td><td><span class="company-tag">㈲前田造園（東京支店）</span></td></tr>
+          <tr><td>大阪市</td><td>南港東公園新設工事</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>阿倍野区防災空間整備工事-2</td><td><span class="company-tag">前田建設㈱</span></td></tr>
+          <tr><td>大阪市</td><td>敷津長吉線街路樹植栽工事</td><td><span class="company-tag">組合</span></td></tr>
+          <tr><td>堺市</td><td>東区役所外溝修繕工事</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+          <tr><td>東京都</td><td>植樹帯撤去工事（西新宿五丁目地区）</td><td><span class="company-tag">㈲前田造園（東京支店）</span></td></tr>
+          <tr><td>大阪府富田林事務所</td><td>一般国道170号外剪定枝等処理（単価契約）</td><td><span class="company-tag">㈲前田造園</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="back-btn-wrap">
+      <a class="btn-outline" href="index.html">← トップページへ戻る</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">前田グループ</div>
+    <p class="footer-copy">© 2025 Maeda Group. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
