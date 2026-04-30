@@ -60,27 +60,44 @@
     @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
     @keyframes fadeUp   { from { opacity:0; transform:translateY(15px); }  to { opacity:1; transform:translateY(0); } }
 
-    /* COMPANIES BAR */
+    /* COMPANIES BAR - 3:3 layout */
     .companies-bar {
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
-      border-top: 3px solid var(--sky-deep); box-shadow: 0 4px 30px rgba(90,173,212,0.18);
+      background: rgba(255,255,255,0.97);
+      border-top: 3px solid var(--sky-deep);
+      box-shadow: 0 4px 30px rgba(90,173,212,0.18);
     }
-    .companies-inner { max-width: 920px; margin: 0 auto; padding: 20px 20px 24px; display: flex; flex-direction: column; gap: 12px; }
-    .companies-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .companies-inner {
+      max-width: 1000px; margin: 0 auto;
+      padding: 24px 20px 28px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .companies-row {
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    }
     .company-item {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 16px 20px; border: 1px solid rgba(90,173,212,0.22); border-radius: 14px;
+      padding: 20px 16px;
+      border: 1px solid rgba(90,173,212,0.22); border-radius: 14px;
       transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
-      min-width: 160px; flex: 1; max-width: 240px;
-      background: rgba(255,255,255,0.6); animation: fadeUp 0.6s ease both;
+      flex: 1; min-width: 140px; max-width: 200px;
+      background: rgba(255,255,255,0.7);
+      animation: fadeUp 0.6s ease both;
     }
-    .company-item:hover { background: rgba(184,221,240,0.3); box-shadow: 0 4px 20px rgba(90,173,212,0.18); transform: translateY(-2px); }
-    .company-logo { width: 64px; height: 64px; object-fit: contain; margin-bottom: 10px; border-radius: 8px; }
+    .company-item:hover {
+      background: rgba(184,221,240,0.3);
+      box-shadow: 0 4px 20px rgba(90,173,212,0.2);
+      transform: translateY(-3px);
+    }
+    .company-logo {
+      width: 88px; height: 88px;
+      object-fit: contain; margin-bottom: 12px;
+      border-radius: 10px;
+    }
     .company-name { font-size: 0.72rem; color: var(--ink-light); text-align: center; line-height: 1.5; }
     .company-name strong { display: block; font-size: 0.8rem; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
-    .company-item:nth-child(1) { animation-delay: 0.25s; }
-    .company-item:nth-child(2) { animation-delay: 0.35s; }
-    .company-item:nth-child(3) { animation-delay: 0.45s; }
+    .company-item:nth-child(1) { animation-delay: 0.2s; }
+    .company-item:nth-child(2) { animation-delay: 0.3s; }
+    .company-item:nth-child(3) { animation-delay: 0.4s; }
 
     /* NAV */
     nav { background: var(--sky-deep); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(90,173,212,0.35); }
@@ -110,7 +127,7 @@
     .service-card h3 { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 12px; }
     .service-card p { font-size: 0.85rem; color: var(--ink-light); line-height: 1.85; }
 
-    /* NUMBERS + EQUIPMENT */
+    /* NUMBERS */
     .numbers-section { background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); padding: 88px 20px; }
     .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; text-align: center; margin-bottom: 56px; }
     .number-item { padding: 30px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; background: rgba(255,255,255,0.08); }
@@ -118,13 +135,23 @@
     .number-unit { font-size: 1rem; color: rgba(255,255,255,0.72); }
     .number-item p { margin-top: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; }
 
-    .equipment-block { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 48px; }
+    /* EQUIPMENT */
+    .equipment-block { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 48px; margin-bottom: 56px; }
     .equipment-title { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 28px; text-align: center; }
-    .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; }
+    .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 16px; }
     .equipment-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 22px 16px; text-align: center; }
     .equipment-num { font-family: 'Shippori Mincho', serif; font-size: 2rem; color: #fff; font-weight: 700; line-height: 1; margin-bottom: 6px; }
     .equipment-unit { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
     .equipment-name { font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-top: 4px; letter-spacing: 0.05em; }
+
+    /* FACILITY PHOTOS */
+    .facility-block { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 48px; }
+    .facility-title { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 28px; text-align: center; }
+    .facility-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; }
+    .facility-img { width: 100%; border-radius: 14px; object-fit: cover; }
+    .facility-img.large { height: 280px; grid-row: span 2; }
+    .facility-img.small { height: 134px; }
+    .facility-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-align: center; margin-top: 6px; letter-spacing: 0.1em; }
 
     /* WORKS */
     .works-section { background: #fff; padding: 88px 20px; }
@@ -132,10 +159,8 @@
     .work-card { border-radius: 16px; overflow: hidden; border: 1px solid rgba(90,173,212,0.14); transition: box-shadow 0.25s; }
     .work-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
     .work-card.large { grid-row: span 2; display: flex; flex-direction: column; }
-    .work-img { width: 100%; height: 200px; object-fit: cover; flex-shrink: 0; }
-    .work-card.large .work-img { flex: 1; min-height: 260px; height: auto; }
-    .work-img-placeholder { width: 100%; height: 200px; flex-shrink: 0; }
-    .work-card.large .work-img-placeholder { flex: 1; min-height: 260px; height: auto; }
+    .work-img { width: 100%; height: 210px; object-fit: cover; flex-shrink: 0; display: block; }
+    .work-card.large .work-img { flex: 1; height: auto; min-height: 280px; }
     .work-info { padding: 20px; }
     .work-tag { display: inline-block; font-size: 0.68rem; background: var(--sky-light); color: var(--sky-deep); border: 1px solid rgba(90,173,212,0.5); border-radius: 20px; padding: 2px 12px; margin-bottom: 10px; letter-spacing: 0.1em; }
     .work-info h3 { font-family: 'Shippori Mincho', serif; font-size: 1rem; color: var(--ink); margin-bottom: 8px; }
@@ -156,6 +181,31 @@
     .btn-white:hover { opacity: 0.85; }
     .recruit-img img { width: 100%; border-radius: 20px; object-fit: cover; height: 340px; box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
 
+    /* QUALIFICATIONS */
+    .qualifications-section { background: #2a4a5e; padding: 80px 20px; }
+    .qualifications-section .section-label { color: #7dd3f0; }
+    .qualifications-section .section-title { color: #fff; margin-bottom: 12px; }
+    .qual-lead { font-size: 0.88rem; color: rgba(255,255,255,0.72); line-height: 1.95; margin-bottom: 48px; }
+    .qual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; }
+    .qual-block { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 16px; overflow: hidden; }
+    .qual-block-header { display: flex; align-items: center; gap: 12px; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); }
+    .qual-block-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .icon-bg-green { background: linear-gradient(135deg, #2d8a5c, #52d488); }
+    .icon-bg-blue  { background: linear-gradient(135deg, #2a5a8c, #5a9fd4); }
+    .icon-bg-gold  { background: linear-gradient(135deg, #8a6c1e, #e8c96e); }
+    .qual-block-name { font-family: 'Shippori Mincho', serif; font-size: 1rem; color: #fff; font-weight: 700; }
+    .qual-rows { padding: 8px 0; }
+    .qual-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .qual-row:last-child { border-bottom: none; }
+    .qual-name { font-size: 0.85rem; color: #fff; line-height: 1.5; }
+    .qual-grade { display: flex; gap: 6px; }
+    .grade-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; }
+    .grade-1    { background: var(--gold); color: #fff; }
+    .grade-2    { background: rgba(130,210,255,0.4); color: #d0f0ff; border: 1px solid rgba(130,210,255,0.6); }
+    .grade-tree { background: linear-gradient(135deg,#2d8a5c,#52d488); color: #fff; font-size: 0.6rem; width: 36px; border-radius: 6px; }
+    .qual-count { font-size: 0.85rem; color: #b0e0ff; white-space: nowrap; min-width: 60px; text-align: right; font-weight: 500; }
+    .qual-note { margin-top: 36px; padding: 16px 22px; background: rgba(255,255,255,0.08); border-radius: 10px; border-left: 3px solid #7dd3f0; font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.95; }
+
     /* CONTACT */
     .contact-section { background: var(--sky-light); padding: 88px 20px; }
     .contact-desc { color: var(--ink-light); font-size: 0.93rem; margin-bottom: 38px; }
@@ -164,31 +214,6 @@
     .btn-primary:hover { opacity: 0.85; }
     .btn-tel { display: inline-block; padding: 16px 42px; background: #fff; color: var(--ink); border: 2px solid rgba(90,173,212,0.3); border-radius: 30px; font-size: 0.9rem; transition: border-color 0.2s; text-decoration: none; }
     .btn-tel:hover { border-color: var(--sky-deep); }
-
-    /* QUALIFICATIONS */
-    .qualifications-section { background: var(--ink); padding: 80px 20px; }
-    .qualifications-section .section-label { color: var(--sky-deep); }
-    .qualifications-section .section-title { color: #fff; margin-bottom: 12px; }
-    .qual-lead { font-size: 0.88rem; color: rgba(255,255,255,0.58); line-height: 1.95; margin-bottom: 48px; }
-    .qual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; }
-    .qual-block { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; }
-    .qual-block-header { display: flex; align-items: center; gap: 12px; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .qual-block-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-    .icon-bg-green { background: linear-gradient(135deg, var(--green-dark), var(--green-light)); }
-    .icon-bg-blue  { background: linear-gradient(135deg, var(--navy), #4a7fa5); }
-    .icon-bg-gold  { background: linear-gradient(135deg, #7a5c1e, var(--gold)); }
-    .qual-block-name { font-family: 'Shippori Mincho', serif; font-size: 1rem; color: #fff; font-weight: 700; }
-    .qual-rows { padding: 8px 0; }
-    .qual-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .qual-row:last-child { border-bottom: none; }
-    .qual-name { font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
-    .qual-grade { display: flex; gap: 6px; }
-    .grade-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; }
-    .grade-1    { background: var(--gold); color: #fff; }
-    .grade-2    { background: rgba(184,221,240,0.25); color: var(--sky); border: 1px solid rgba(184,221,240,0.4); }
-    .grade-tree { background: linear-gradient(135deg,#2d6a4f,#52b788); color: #fff; font-size: 0.65rem; width: 32px; border-radius: 6px; }
-    .qual-count { font-size: 0.82rem; color: rgba(255,255,255,0.7); white-space: nowrap; min-width: 60px; text-align: right; font-weight: 500; }
-    .qual-note { margin-top: 36px; padding: 16px 22px; background: rgba(255,255,255,0.04); border-radius: 10px; border-left: 3px solid var(--sky-deep); font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.95; }
 
     /* FOOTER */
     footer { background: #111e27; padding: 52px 20px 28px; }
@@ -204,7 +229,8 @@
     /* RESPONSIVE */
     @media (max-width: 768px) {
       header { height: 380px; }
-      .company-item { min-width: 130px; padding: 12px 10px; }
+      .company-item { min-width: 120px; padding: 14px 10px; }
+      .company-logo { width: 64px; height: 64px; }
       .nav-item { font-size: 0.75rem; padding: 13px 14px; }
       .works-grid { grid-template-columns: 1fr; }
       .work-card.large { grid-row: span 1; }
@@ -213,6 +239,9 @@
       .qual-grid { grid-template-columns: 1fr; }
       .qual-count { display: none; }
       .equipment-grid { grid-template-columns: repeat(2,1fr); }
+      .facility-grid { grid-template-columns: 1fr 1fr; }
+      .facility-img.large { grid-row: span 1; height: 180px; }
+      .facility-img.small { height: 120px; }
     }
   </style>
 </head>
@@ -231,7 +260,7 @@
     </div>
   </header>
 
-  <!-- 会社帯 -->
+  <!-- 会社帯 3:3 -->
   <div class="companies-bar">
     <div class="companies-inner">
       <div class="companies-row">
@@ -243,19 +272,23 @@
           <img class="company-logo" src="前田造園.png" alt="有限会社前田造園">
           <div class="company-name"><strong>有限会社前田造園</strong>Landscape</div>
         </div>
-      </div>
-      <div class="companies-row">
         <div class="company-item">
           <img class="company-logo" src="豊栄建設.png" alt="豊栄建設株式会社">
           <div class="company-name"><strong>豊栄建設株式会社</strong>Construction</div>
         </div>
+      </div>
+      <div class="companies-row">
         <div class="company-item">
-          <img class="company-logo" src="熊取処分場.png" alt="熊取処分場">
-          <div class="company-name"><strong>熊取処分場</strong>Disposal Site</div>
+          <img class="company-logo" src="マエダ.png" alt="株式会社マエダ">
+          <div class="company-name"><strong>株式会社マエダ</strong>Maeda Co., Ltd.</div>
         </div>
         <div class="company-item">
           <img class="company-logo" src="大志造園土木.png" alt="株式会社大志造園土木">
           <div class="company-name"><strong>株式会社大志造園土木</strong>Taishi Landscape</div>
+        </div>
+        <div class="company-item">
+          <img class="company-logo" src="熊取処分場.png" alt="熊取処分場">
+          <div class="company-name"><strong>熊取処分場</strong>Disposal Site</div>
         </div>
       </div>
     </div>
@@ -311,7 +344,7 @@
     </div>
   </section>
 
-  <!-- グループの強み + 保有機材 -->
+  <!-- グループの強み + 機材 + 施設写真 -->
   <section class="numbers-section">
     <div class="section-inner">
       <div class="section-label" style="color:rgba(255,255,255,0.55);">ABOUT US</div>
@@ -335,6 +368,7 @@
         </div>
       </div>
 
+      <!-- 保有機材 -->
       <div class="equipment-block">
         <div class="equipment-title">大阪府内最大級の機材・車両体制</div>
         <div class="equipment-grid">
@@ -359,12 +393,47 @@
             <div class="equipment-name">高所作業車</div>
           </div>
           <div class="equipment-item">
-            <div class="equipment-num" style="font-size:1.3rem;">大型</div>
-            <div class="equipment-unit" style="margin-top:2px;">設備</div>
+            <div class="equipment-num" style="font-size:1.2rem; padding-top:4px;">大型</div>
+            <div class="equipment-unit">設備</div>
             <div class="equipment-name">大型破砕機</div>
           </div>
         </div>
       </div>
+
+      <!-- 施設・車両写真 -->
+      <div class="facility-block">
+        <div class="facility-title">拠点・施設</div>
+        <div class="facility-grid">
+          <!-- 左：熊取処分場 大きく -->
+          <div>
+            <img class="facility-img large" src="熊取.jpg" alt="熊取処分場">
+            <div class="facility-label">熊取自社処分場</div>
+          </div>
+          <!-- 右上・右下 -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div>
+              <img class="facility-img small" src="本社.jpg" alt="本社">
+              <div class="facility-label">本社</div>
+            </div>
+            <div>
+              <img class="facility-img small" src="事務所.jpg" alt="事務所">
+              <div class="facility-label">事務所</div>
+            </div>
+          </div>
+          <!-- 右下2枚 -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div>
+              <img class="facility-img small" src="会議室.jpg" alt="会議室">
+              <div class="facility-label">会議室</div>
+            </div>
+            <div>
+              <img class="facility-img small" src="応接室.jpg" alt="応接室">
+              <div class="facility-label">応接室</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -375,8 +444,7 @@
       <h2 class="section-title">施工事例</h2>
       <div class="works-grid">
         <div class="work-card large">
-          <!-- 画像があればここに: <img class="work-img" src="works/yamadaike.jpg" alt="山田池公園"> -->
-          <div class="work-img-placeholder" style="background:linear-gradient(135deg,#2d6a4f,#74c69d); flex:1; min-height:260px;"></div>
+          <img class="work-img" src="山田池公園.png" alt="山田池公園 自由広場等改修工事">
           <div class="work-info">
             <span class="work-tag">造園・公園整備</span>
             <h3>山田池公園　自由広場等改修工事</h3>
@@ -384,7 +452,7 @@
           </div>
         </div>
         <div class="work-card">
-          <div class="work-img-placeholder" style="background:linear-gradient(135deg,#1a3a5c,#4a7fa5); height:200px;"></div>
+          <img class="work-img" src="UR南港.png" alt="南港ひかりの他12団地植物管理工事">
           <div class="work-info">
             <span class="work-tag">維持管理</span>
             <h3>南港ひかりの他12団地植物管理工事</h3>
@@ -392,7 +460,7 @@
           </div>
         </div>
         <div class="work-card">
-          <div class="work-img-placeholder" style="background:linear-gradient(135deg,#5c3a1a,#a07040); height:200px;"></div>
+          <img class="work-img" src="浜寺公園.png" alt="国営飛鳥歴史公園 高松塚周辺地区 園路広場修繕他工事">
           <div class="work-info">
             <span class="work-tag">国営公園整備</span>
             <h3>国営飛鳥歴史公園　高松塚周辺地区　園路広場修繕他工事</h3>
@@ -428,19 +496,6 @@
     </div>
   </section>
 
-  <!-- お問い合わせ -->
-  <section class="contact-section" id="contact">
-    <div class="section-inner" style="text-align:center;">
-      <div class="section-label">CONTACT</div>
-      <h2 class="section-title">お問い合わせ</h2>
-      <p class="contact-desc">造園・土木・建設に関するご相談はお気軽にどうぞ。お見積もりは無料です。</p>
-      <div class="contact-buttons">
-        <a class="btn-primary" href="contact.html">📋 お問い合わせフォーム</a>
-        <a class="btn-tel" href="tel:0X0XXXXXXXX">📞 TEL: 0X0-XXXX-XXXX</a>
-      </div>
-    </div>
-  </section>
-
   <!-- 資格保有者 -->
   <section class="qualifications-section" id="qualifications">
     <div class="section-inner">
@@ -451,7 +506,6 @@
         有資格者が現場を直接管理することで、安全・高品質な施工をお約束します。
       </p>
       <div class="qual-grid">
-
         <div class="qual-block">
           <div class="qual-block-header">
             <div class="qual-block-icon icon-bg-gold">🌲</div>
@@ -465,7 +519,6 @@
             </div>
           </div>
         </div>
-
         <div class="qual-block">
           <div class="qual-block-header">
             <div class="qual-block-icon icon-bg-green">🌿</div>
@@ -484,7 +537,6 @@
             </div>
           </div>
         </div>
-
         <div class="qual-block">
           <div class="qual-block-header">
             <div class="qual-block-icon icon-bg-blue">🏗️</div>
@@ -498,11 +550,21 @@
             </div>
           </div>
         </div>
-
       </div>
-      <p class="qual-note">
-        ※ 資格者数は2025年現在の情報です。
-      </p>
+      <p class="qual-note">※ 資格者数は2025年現在の情報です。</p>
+    </div>
+  </section>
+
+  <!-- お問い合わせ（最下部） -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner" style="text-align:center;">
+      <div class="section-label">CONTACT</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="contact-desc">造園・土木・建設に関するご相談はお気軽にどうぞ。お見積もりは無料です。</p>
+      <div class="contact-buttons">
+        <a class="btn-primary" href="contact.html">📋 お問い合わせフォーム</a>
+        <a class="btn-tel" href="tel:0X0XXXXXXXX">📞 TEL: 0X0-XXXX-XXXX</a>
+      </div>
     </div>
   </section>
 
@@ -520,7 +582,7 @@
       </div>
       <div class="footer-divider"></div>
       <div class="footer-companies">
-        前田建設株式会社　／　有限会社前田造園　／　豊栄建設株式会社　／　熊取処分場　／　株式会社大志造園土木
+        前田建設株式会社　／　有限会社前田造園　／　豊栄建設株式会社　／　株式会社マエダ　／　株式会社大志造園土木　／　熊取処分場
       </div>
       <p class="footer-copy">© 2025 Maeda Group. All rights reserved.</p>
     </div>
