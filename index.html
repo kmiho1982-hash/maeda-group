@@ -182,12 +182,102 @@
 
     /* SERVICES */
     .services-section { background: var(--sky-light); padding: 88px 20px; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 20px; }
-    .service-card { background: #fff; border-radius: 16px; padding: 32px 24px; border: 1px solid rgba(90,173,212,0.14); transition: box-shadow 0.25s, transform 0.2s; }
-    .service-card:hover { box-shadow: 0 8px 30px rgba(90,173,212,0.2); transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; margin-bottom: 16px; }
-    .service-card h3 { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 12px; }
-    .service-card p { font-size: 0.85rem; color: var(--ink-light); line-height: 1.85; }
+    .services-grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .service-card { 
+      position: relative;
+      border-radius: 20px; 
+      padding: 40px 32px; 
+      border: 1px solid rgba(90,173,212,0.14); 
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    /* Background images for each service */
+    .service-card:nth-child(1) {
+      background-image: url('造園緑化工事.png');
+    }
+    .service-card:nth-child(2) {
+      background-image: url('公園設備工事.png');
+    }
+    .service-card:nth-child(3) {
+      background-image: url('エクステリア.png');
+    }
+    .service-card:nth-child(4) {
+      background-image: url('民間工事.png');
+    }
+    
+    /* White content overlay for readability */
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, 
+        rgba(255,255,255,0.97) 0%, 
+        rgba(255,255,255,0.90) 50%, 
+        rgba(0,0,0,0.15) 100%
+      );
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover::before {
+      background: linear-gradient(to top, 
+        rgba(255,255,255,0.95) 0%, 
+        rgba(255,255,255,0.85) 50%, 
+        rgba(0,0,0,0.25) 100%
+      );
+    }
+    
+    .service-card:hover { 
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2); 
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(255,255,255,0.8);
+    }
+    
+    /* Content positioning */
+    .service-card > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .service-card h3 { 
+      font-family: 'Shippori Mincho', serif; 
+      font-size: 1.5rem; 
+      color: var(--ink); 
+      margin-bottom: 12px;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+    }
+    .service-card p { 
+      font-size: 0.93rem; 
+      color: var(--ink-light); 
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .service-details {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.8;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* NUMBERS */
     .numbers-section { background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); padding: 88px 20px; }
@@ -388,24 +478,24 @@
       <h2 class="section-title">事業内容</h2>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">🌳</div>
           <h3>造園・緑化</h3>
-          <p>庭園設計・施工から公園整備まで。植栽管理・剪定・芝生工事など、緑に関わるすべてをワンストップで対応します。</p>
+          <p>草刈、剪定、伐採、害虫駆除、植栽管理、芝生工事など、緑に関わるすべての作業に対応。</p>
+          <div class="service-details">公園管理から個人宅の庭園まで、豊富な経験と確かな技術で、美しく健全な緑の環境を創造・維持します。</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🏗️</div>
-          <h3>土木工事</h3>
-          <p>道路・排水・擁壁・造成工事など、地域インフラを支える土木工事全般を手がけます。官民問わず豊富な実績があります。</p>
+          <h3>公園設備工事</h3>
+          <p>大小遊具設置、ベンチ・パーゴラなどの公園施設打設、舗装工事など、公園に関わる工事全般に対応。</p>
+          <div class="service-details">安全性と機能性を第一に、子どもから大人まで楽しめる公共空間づくりを実現します。</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🏢</div>
           <h3>外構・エクステリア工事</h3>
-          <p>フェンス工事やサイン設置をはじめ、建物まわりの外構工事全般に対応。機能性とデザイン性を兼ね備えた空間づくりを行います。</p>
+          <p>フェンス工事やサイン設置をはじめ、建物まわりの外構工事全般に対応。</p>
+          <div class="service-details">機能性とデザイン性を兼ね備えた空間づくりを行い、建物の価値を高める外構を提供します。</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🌿</div>
           <h3>民間工事</h3>
-          <p>お庭の剪定・草刈り・支障木の伐採など、日常の管理からスポット作業まで柔軟に対応。個人のお客様のニーズにも丁寧にお応えします。</p>
+          <p>お庭の剪定・草刈り・支障木の伐採など、日常の管理からスポット作業まで柔軟に対応。</p>
+          <div class="service-details">個人のお客様のニーズにも丁寧にお応えし、快適な住環境づくりをサポートします。</div>
         </div>
       </div>
     </div>
