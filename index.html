@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>前田グループ｜造園・土木・建設</title>
   <meta name="description" content="前田グループは造園・土木・建設の専門5社が連携する大阪府内最大級の造園グループです。創業50年、公共・民間工事から緑化・維持管理まで一貫対応。">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Shippori+Mincho:wght@400;700&family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -60,44 +60,106 @@
     @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
     @keyframes fadeUp   { from { opacity:0; transform:translateY(15px); }  to { opacity:1; transform:translateY(0); } }
 
-    /* COMPANIES BAR - 3:3 layout */
+    /* COMPANIES BAR - Minimal Design with Impact */
     .companies-bar {
-      background: rgba(255,255,255,0.97);
-      border-top: 3px solid var(--sky-deep);
-      box-shadow: 0 4px 30px rgba(90,173,212,0.18);
+      background: #e8eaed;
+      padding: 80px 40px;
     }
     .companies-inner {
-      max-width: 1000px; margin: 0 auto;
-      padding: 24px 20px 28px;
-      display: flex; flex-direction: column; gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .companies-row {
-      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    .companies-label {
+      font-size: 14px;
+      letter-spacing: 4px;
+      font-weight: 600;
+      margin-bottom: 60px;
+      color: #888;
+    }
+    .companies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
     }
     .company-item {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 20px 16px;
-      border: 1px solid rgba(90,173,212,0.22); border-radius: 14px;
-      transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
-      flex: 1; min-width: 140px; max-width: 200px;
-      background: rgba(255,255,255,0.7);
-      animation: fadeUp 0.6s ease both;
+      text-decoration: none;
+      border-top: 4px solid;
+      padding: 40px 30px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 140px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 4px;
+    }
+    .company-item .inner {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .company-item .inner h3 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 28px;
+      font-weight: 500;
+      margin: 0;
+      letter-spacing: 0.08em;
     }
     .company-item:hover {
-      background: rgba(184,221,240,0.3);
-      box-shadow: 0 4px 20px rgba(90,173,212,0.2);
-      transform: translateY(-3px);
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
-    .company-logo {
-      width: 88px; height: 88px;
-      object-fit: contain; margin-bottom: 12px;
-      border-radius: 10px;
+    .company-item::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .company-name { font-size: 0.72rem; color: var(--ink-light); text-align: center; line-height: 1.5; }
-    .company-name strong { display: block; font-size: 0.8rem; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
-    .company-item:nth-child(1) { animation-delay: 0.2s; }
-    .company-item:nth-child(2) { animation-delay: 0.3s; }
-    .company-item:nth-child(3) { animation-delay: 0.4s; }
+    .company-item:hover::after {
+      width: 100%;
+    }
+    
+    /* ネイビー系（前田建設、豊栄建設、大志造園土木） */
+    .company-maeda-kensetsu,
+    .company-hoei,
+    .company-taishi {
+      border-color: #1a3a5c;
+      color: #0d1b2a;
+    }
+    .company-maeda-kensetsu::after,
+    .company-hoei::after,
+    .company-taishi::after {
+      background: #1a3a5c;
+    }
+    
+    /* グリーン系（前田造園、マエダ、熊取処分場） */
+    .company-maeda-zoen,
+    .company-maeda,
+    .company-kumatori {
+      border-color: #2d6a4f;
+      color: #1b4332;
+    }
+    .company-maeda-zoen::after,
+    .company-maeda::after,
+    .company-kumatori::after {
+      background: #2d6a4f;
+    }
+    
+    @media (max-width: 900px) {
+      .companies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .companies-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* NAV */
     nav { background: var(--sky-deep); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(90,173,212,0.35); }
@@ -260,41 +322,7 @@
     </div>
   </header>
 
-  <!-- 会社帯 3:3 -->
-  <div class="companies-bar">
-    <div class="companies-inner">
-      <div class="companies-row">
-        <div class="company-item">
-          <img class="company-logo" src="前田建設.png" alt="前田建設株式会社">
-          <div class="company-name"><strong>前田建設株式会社</strong>Construction</div>
-        </div>
-        <div class="company-item">
-          <img class="company-logo" src="前田造園.png" alt="有限会社前田造園">
-          <div class="company-name"><strong>有限会社前田造園</strong>Landscape</div>
-        </div>
-        <div class="company-item">
-          <img class="company-logo" src="豊栄建設.png" alt="豊栄建設株式会社">
-          <div class="company-name"><strong>豊栄建設株式会社</strong>Construction</div>
-        </div>
-      </div>
-      <div class="companies-row">
-        <div class="company-item">
-          <img class="company-logo" src="マエダ.png" alt="株式会社マエダ">
-          <div class="company-name"><strong>株式会社マエダ</strong>Maeda Co., Ltd.</div>
-        </div>
-        <div class="company-item">
-          <img class="company-logo" src="大志造園土木.png" alt="株式会社大志造園土木">
-          <div class="company-name"><strong>株式会社大志造園土木</strong>Taishi Landscape</div>
-        </div>
-        <div class="company-item">
-          <img class="company-logo" src="熊取処分場.png" alt="熊取処分場">
-          <div class="company-name"><strong>熊取処分場</strong>Disposal Site</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ナビ -->
+  <!-- ナビゲーション -->
   <nav>
     <div class="nav-inner">
       <a class="nav-item" href="#about">グループについて</a>
@@ -304,6 +332,45 @@
       <a class="nav-item" href="#contact">お問い合わせ</a>
     </div>
   </nav>
+
+  <!-- 会社帯 3:3 -->
+  <div class="companies-bar">
+    <div class="companies-inner">
+      <h2 class="companies-label">GROUP</h2>
+      <div class="companies-grid">
+        <a href="maeda-kensetsu.html" class="company-item company-maeda-kensetsu">
+          <div class="inner">
+            <h3>前田建設(株)</h3>
+          </div>
+        </a>
+        <a href="maeda-zoen.html" class="company-item company-maeda-zoen">
+          <div class="inner">
+            <h3>(有)前田造園</h3>
+          </div>
+        </a>
+        <a href="hoei-kensetsu.html" class="company-item company-hoei">
+          <div class="inner">
+            <h3>豊栄建設(株)</h3>
+          </div>
+        </a>
+        <a href="maeda.html" class="company-item company-maeda">
+          <div class="inner">
+            <h3>(株)マエダ</h3>
+          </div>
+        </a>
+        <a href="taishi-zoen.html" class="company-item company-taishi">
+          <div class="inner">
+            <h3>大志造園土木(株)</h3>
+          </div>
+        </a>
+        <a href="kumatori.html" class="company-item company-kumatori">
+          <div class="inner">
+            <h3>熊取処分場</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- キャッチ -->
   <section class="catch-section" id="about">
