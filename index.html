@@ -298,72 +298,68 @@
     .equipment-unit { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
     .equipment-name { font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-top: 4px; letter-spacing: 0.05em; }
 
-    /* FACILITY PHOTOS - Auto Carousel */
+    /* FACILITY PHOTOS - Grid Layout */
     .facility-block { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 48px; }
     .facility-title { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 28px; text-align: center; }
     
-    .facility-carousel {
-      position: relative;
-      max-width: 900px;
+    .facility-grid-top {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .facility-grid-bottom {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 66.66%;
       margin: 0 auto;
+    }
+    
+    .facility-item {
+      position: relative;
+      border-radius: 12px;
       overflow: hidden;
-      border-radius: 16px;
       background: rgba(255,255,255,0.05);
     }
     
-    .facility-slides {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
+    .facility-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
     }
     
-    .facility-slide {
-      min-width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    
-    .facility-slide img {
-      max-width: 100%;
-      max-height: 500px;
-      object-fit: contain;
-      border-radius: 12px;
-    }
-    
-    .facility-slide-label {
+    .facility-label-tag {
       position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.7);
+      top: 12px;
+      left: 12px;
+      background: rgba(90,173,212,0.85);
       color: #fff;
-      padding: 8px 24px;
+      padding: 6px 16px;
       border-radius: 20px;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      font-weight: 500;
     }
     
-    .facility-dots {
-      text-align: center;
-      padding: 20px 0;
+    .facility-item-title {
+      padding: 16px;
+      color: #fff;
     }
     
-    .facility-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      margin: 0 5px;
-      cursor: pointer;
-      transition: background 0.3s;
+    .facility-item-title h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #fff;
     }
     
-    .facility-dot.active {
-      background: rgba(255,255,255,0.9);
-      width: 12px;
-      height: 12px;
+    .facility-item-title p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
     }
 
     /* WORKS */
@@ -616,71 +612,38 @@
         </div>
       </div>
 
-      <!-- 施設・車両写真 - 自動スライド -->
+      <!-- 施設写真 -->
       <div class="facility-block">
         <div class="facility-title">本社ビル</div>
-        <div class="facility-carousel">
-          <div class="facility-slides">
-            <div class="facility-slide">
-              <img src="本社.JPG" alt="本社ビル">
-              <div class="facility-slide-label">本社ビル</div>
-            </div>
-            <div class="facility-slide">
-              <img src="事務所.JPG" alt="2階">
-              <div class="facility-slide-label">2階</div>
-            </div>
-            <div class="facility-slide">
-              <img src="応接室.JPG" alt="応接室">
-              <div class="facility-slide-label">応接室</div>
-            </div>
-            <div class="facility-slide">
-              <img src="3階.png" alt="3階">
-              <div class="facility-slide-label">3階</div>
-            </div>
-            <div class="facility-slide">
-              <img src="会議室.JPG" alt="会議室">
-              <div class="facility-slide-label">会議室</div>
-            </div>
+        
+        <!-- 上段3枚 -->
+        <div class="facility-grid-top">
+          <div class="facility-item">
+            <img src="本社.JPG" alt="本社ビル">
+            <div class="facility-label-tag">本社・拠点</div>
+          </div>
+          <div class="facility-item">
+            <img src="事務所.JPG" alt="2階">
+            <div class="facility-label-tag">2階</div>
+          </div>
+          <div class="facility-item">
+            <img src="応接室.JPG" alt="応接室">
+            <div class="facility-label-tag">応接室</div>
           </div>
         </div>
-        <div class="facility-dots">
-          <span class="facility-dot active" onclick="facilityGoToSlide(0)"></span>
-          <span class="facility-dot" onclick="facilityGoToSlide(1)"></span>
-          <span class="facility-dot" onclick="facilityGoToSlide(2)"></span>
-          <span class="facility-dot" onclick="facilityGoToSlide(3)"></span>
-          <span class="facility-dot" onclick="facilityGoToSlide(4)"></span>
+        
+        <!-- 下段2枚 -->
+        <div class="facility-grid-bottom">
+          <div class="facility-item">
+            <img src="3階.png" alt="3階">
+            <div class="facility-label-tag">3階</div>
+          </div>
+          <div class="facility-item">
+            <img src="会議室.JPG" alt="会議室">
+            <div class="facility-label-tag">会議室</div>
+          </div>
         </div>
       </div>
-
-      <script>
-        let facilityCurrentSlide = 0;
-        const facilitySlides = document.querySelector('.facility-slides');
-        const facilityDots = document.querySelectorAll('.facility-dot');
-        const facilityTotalSlides = 5;
-
-        function facilityShowSlide(n) {
-          facilityCurrentSlide = n;
-          if (facilityCurrentSlide >= facilityTotalSlides) facilityCurrentSlide = 0;
-          if (facilityCurrentSlide < 0) facilityCurrentSlide = facilityTotalSlides - 1;
-          
-          facilitySlides.style.transform = `translateX(-${facilityCurrentSlide * 100}%)`;
-          
-          facilityDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === facilityCurrentSlide);
-          });
-        }
-
-        function facilityGoToSlide(n) {
-          facilityShowSlide(n);
-        }
-
-        function facilityAutoSlide() {
-          facilityShowSlide(facilityCurrentSlide + 1);
-        }
-
-        // 自動スライド：4秒ごと
-        setInterval(facilityAutoSlide, 4000);
-      </script>
 
     </div>
   </section>
