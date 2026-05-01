@@ -298,23 +298,24 @@
     .equipment-unit { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
     .equipment-name { font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-top: 4px; letter-spacing: 0.05em; }
 
-    /* FACILITY PHOTOS - Grid Layout */
+    /* FACILITY PHOTOS - PDF Layout */
     .facility-block { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 48px; }
     .facility-title { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 28px; text-align: center; }
     
-    .facility-grid-top {
+    .facility-grid-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 2fr;
       gap: 16px;
-      margin-bottom: 16px;
     }
     
-    .facility-grid-bottom {
+    .facility-left {
+      display: flex;
+    }
+    
+    .facility-right {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
-      max-width: 66.66%;
-      margin: 0 auto;
     }
     
     .facility-item {
@@ -326,16 +327,25 @@
     
     .facility-item img {
       width: 100%;
-      height: 280px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
     
-    /* 本社ビルだけ縦長表示 */
-    .facility-item.vertical img {
-      height: 380px;
+    /* 本社ビル - 左側大きく縦長 */
+    .facility-left .facility-item {
+      height: 100%;
+      min-height: 400px;
+    }
+    
+    .facility-left .facility-item img {
       object-fit: contain;
       background: rgba(0,0,0,0.2);
+    }
+    
+    /* 右側4枚 - 横長 */
+    .facility-right .facility-item {
+      height: 192px;
     }
     
     .facility-label-tag {
@@ -606,31 +616,33 @@
       <div class="facility-block">
         <div class="facility-title">本社ビル</div>
         
-        <!-- 上段3枚 -->
-        <div class="facility-grid-top">
-          <div class="facility-item vertical">
-            <img src="本社.JPG" alt="本社ビル">
-            <div class="facility-label-tag">本社・拠点</div>
+        <div class="facility-grid-container">
+          <!-- 左側：本社ビル（大きく縦長） -->
+          <div class="facility-left">
+            <div class="facility-item">
+              <img src="本社.JPG" alt="本社ビル">
+              <div class="facility-label-tag">本社・拠点</div>
+            </div>
           </div>
-          <div class="facility-item">
-            <img src="事務所.JPG" alt="2階">
-            <div class="facility-label-tag">2階</div>
-          </div>
-          <div class="facility-item">
-            <img src="応接室.JPG" alt="応接室">
-            <div class="facility-label-tag">応接室</div>
-          </div>
-        </div>
-        
-        <!-- 下段2枚 -->
-        <div class="facility-grid-bottom">
-          <div class="facility-item">
-            <img src="3階.png" alt="3階">
-            <div class="facility-label-tag">3階</div>
-          </div>
-          <div class="facility-item">
-            <img src="会議室.JPG" alt="会議室">
-            <div class="facility-label-tag">会議室</div>
+          
+          <!-- 右側：2x2グリッド -->
+          <div class="facility-right">
+            <div class="facility-item">
+              <img src="事務所.JPG" alt="2階">
+              <div class="facility-label-tag">2階</div>
+            </div>
+            <div class="facility-item">
+              <img src="応接室.JPG" alt="応接室">
+              <div class="facility-label-tag">応接室</div>
+            </div>
+            <div class="facility-item">
+              <img src="3階.png" alt="3階">
+              <div class="facility-label-tag">3階</div>
+            </div>
+            <div class="facility-item">
+              <img src="会議室.JPG" alt="会議室">
+              <div class="facility-label-tag">会議室</div>
+            </div>
           </div>
         </div>
       </div>
