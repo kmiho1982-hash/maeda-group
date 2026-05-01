@@ -62,7 +62,7 @@
 
     /* COMPANIES BAR - Minimal Design with Impact */
     .companies-bar {
-      background: #e8eaed;
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 50%, #6ee7b7 100%);
       padding: 80px 40px;
     }
     .companies-inner {
@@ -458,24 +458,135 @@
     .works-more { text-align: center; }
     .btn-outline { display: inline-block; padding: 12px 36px; border: 2px solid var(--sky-deep); color: var(--sky-deep); border-radius: 30px; font-size: 0.88rem; letter-spacing: 0.1em; transition: background 0.2s, color 0.2s; text-decoration: none; }
     .btn-outline:hover { background: var(--sky-deep); color: #fff; }
+    .btn-works-large {
+      display: inline-block;
+      padding: 20px 60px;
+      background: linear-gradient(135deg, var(--sky-deep) 0%, #1e40af 100%);
+      color: #fff;
+      border-radius: 40px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+    }
+    .btn-works-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+      background: linear-gradient(135deg, #1e40af 0%, var(--sky-deep) 100%);
+    }
 
+    /* PRESIDENT GREETING */
+    .president-section {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      padding: 100px 40px;
+    }
+    .president-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .president-photo {
+      position: relative;
+    }
+    .president-photo img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .president-photo-label {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(45, 106, 79, 0.95);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .president-content .section-label {
+      color: #2d6a4f;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .president-content h2 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 2rem;
+      color: #1b4332;
+      margin-bottom: 24px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .president-content p {
+      font-size: 1rem;
+      line-height: 2;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .president-signature {
+      text-align: right;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem;
+      color: #2d6a4f;
+      margin-top: 30px;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .president-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    
     /* RECRUIT */
-    .recruit-section { background: linear-gradient(135deg, var(--navy), #2d6a9f); padding: 88px 20px; }
+    .recruit-section { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); padding: 88px 20px; }
+    .recruit-subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--sky-deep);
+      margin-bottom: 16px;
+    }
+    .btn-recruit-large {
+      display: inline-block;
+      padding: 20px 60px;
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      border-radius: 40px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+    }
+    .btn-recruit-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(45, 106, 79, 0.4);
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+    }
     .recruit-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .recruit-text .section-label { color: rgba(255,255,255,0.55); }
-    .recruit-text .section-title { color: #fff; }
-    .recruit-text p { color: rgba(255,255,255,0.8); line-height: 1.95; font-size: 0.9rem; margin-bottom: 22px; }
+    .recruit-text .section-label { color: var(--sky-deep); }
+    .recruit-text .section-title { color: var(--ink); }
+    .recruit-text p { color: var(--ink-light); line-height: 1.95; font-size: 0.9rem; margin-bottom: 22px; }
     .recruit-points { list-style: none; margin-bottom: 32px; }
-    .recruit-points li { color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-bottom: 10px; }
+    .recruit-points li { color: var(--ink); font-size: 0.88rem; margin-bottom: 10px; }
     .btn-white { display: inline-block; padding: 14px 36px; background: #fff; color: var(--navy); border-radius: 30px; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.1em; transition: opacity 0.2s; text-decoration: none; }
     .btn-white:hover { opacity: 0.85; }
     .recruit-img img { width: 100%; border-radius: 20px; object-fit: cover; height: 340px; box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
 
     /* QUALIFICATIONS */
-    .qualifications-section { background: #2a4a5e; padding: 80px 20px; }
-    .qualifications-section .section-label { color: #7dd3f0; }
-    .qualifications-section .section-title { color: #fff; margin-bottom: 12px; }
-    .qual-lead { font-size: 0.88rem; color: rgba(255,255,255,0.72); line-height: 1.95; margin-bottom: 48px; }
+    .qualifications-section { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 80px 20px; }
+    .qualifications-section .section-label { color: #2d6a4f; }
+    .qualifications-section .section-title { color: #1b4332; margin-bottom: 12px; }
+    .qual-lead { font-size: 0.88rem; color: #1b4332; line-height: 1.95; margin-bottom: 48px; }
     .qual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; }
     .qual-block { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 16px; overflow: hidden; }
     .qual-block-header { display: flex; align-items: center; gap: 12px; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); }
@@ -494,7 +605,7 @@
     .grade-2    { background: rgba(130,210,255,0.4); color: #d0f0ff; border: 1px solid rgba(130,210,255,0.6); }
     .grade-tree { background: linear-gradient(135deg,#2d8a5c,#52d488); color: #fff; font-size: 0.6rem; width: 36px; border-radius: 6px; }
     .qual-count { font-size: 0.85rem; color: #b0e0ff; white-space: nowrap; min-width: 60px; text-align: right; font-weight: 500; }
-    .qual-note { margin-top: 36px; padding: 16px 22px; background: rgba(255,255,255,0.08); border-radius: 10px; border-left: 3px solid #7dd3f0; font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.95; }
+    .qual-note { margin-top: 36px; padding: 16px 22px; background: rgba(45,106,79,0.1); border-radius: 10px; border-left: 3px solid #2d6a4f; font-size: 0.78rem; color: #1b4332; line-height: 1.95; }
 
     /* CONTACT */
     .contact-section { background: var(--sky-light); padding: 88px 20px; }
@@ -555,7 +666,7 @@
     <div class="nav-inner">
       <a class="nav-item" href="#about">グループについて</a>
       <a class="nav-item" href="#services">事業内容</a>
-      <a class="nav-item" href="#works">施工事例</a>
+      <a class="nav-item" href="#works">施工実績</a>
       <a class="nav-item" href="#recruit">採用情報</a>
       <a class="nav-item" href="#contact">お問い合わせ</a>
     </div>
@@ -795,11 +906,11 @@
     </div>
   </section>
 
-  <!-- 施工事例 -->
+  <!-- 施工実績 -->
   <section class="works-section" id="works">
     <div class="section-inner">
       <div class="section-label">WORKS</div>
-      <h2 class="section-title">施工事例</h2>
+      <h2 class="section-title">施工実績</h2>
       <div class="works-grid">
         <div class="work-card large">
           <img class="work-img" src="山田池公園.png" alt="山田池公園 自由広場等改修工事">
@@ -818,16 +929,35 @@
           </div>
         </div>
         <div class="work-card">
-          <img class="work-img" src="浜寺公園.png" alt="国営飛鳥歴史公園 高松塚周辺地区 園路広場修繕他工事">
+          <img class="work-img" src="浜寺公園.png" alt="浜寺公園　中央花壇周辺改修工事">
           <div class="work-info">
-            <span class="work-tag">国営公園整備</span>
-            <h3>国営飛鳥歴史公園　高松塚周辺地区　園路広場修繕他工事</h3>
-            <p>近畿地方整備局発注。世界的な文化財周辺の園路・広場修繕工事。</p>
+            <span class="work-tag">公園工事</span>
+            <h3>浜寺公園　中央花壇周辺改修工事</h3>
+            <p>大阪府発注。歴史ある浜寺公園の中央花壇周辺の改修工事。</p>
           </div>
         </div>
       </div>
       <div class="works-more">
-        <a class="btn-outline" href="works.html">施工事例をもっと見る</a>
+        <a class="btn-works-large" href="works.html">施工実績をもっと見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 代表挨拶 -->
+  <section class="president-section">
+    <div class="president-inner">
+      <div class="president-photo">
+        <img src="社長.png" alt="代表取締役 前田">
+        <div class="president-photo-label">代表取締役</div>
+      </div>
+      <div class="president-content">
+        <div class="section-label">MESSAGE</div>
+        <h2>代表挨拶</h2>
+        <p>前田建設グループは、創業から50年以上にわたり、造園・土木・建設の分野で地域社会に貢献してまいりました。官公庁から民間まで、数多くのプロジェクトを通じて培ってきた確かな技術力と実績は、お客様からの信頼の証であると自負しております。</p>
+        <p>しかし、これまでの成功に甘んじることなく、私たちは常に前を向いています。環境との共生、持続可能な社会の実現、そして次世代への技術継承。これらの課題に真摯に向き合いながら、前田グループは新たな挑戦を続けてまいります。</p>
+        <p>グループ6社が一体となり、それぞれの強みを活かしながら、お客様のニーズに最適なソリューションを提供する。そして、自社処分場での木質廃材リサイクルなど、循環型社会の実現にも貢献する。これが、私たちの目指す未来です。</p>
+        <p>若い力、新しい視点を持つ仲間たちとともに、次の50年に向けて、さらなる飛躍を遂げたいと考えております。</p>
+        <div class="president-signature">前田建設グループ　代表取締役　前田</div>
       </div>
     </div>
   </section>
@@ -837,7 +967,8 @@
     <div class="recruit-inner">
       <div class="recruit-text">
         <div class="section-label">RECRUIT</div>
-        <h2 class="section-title">仲間を募集しています</h2>
+        <h2 class="section-title">わたしたちといっしょにはたらきませんか</h2>
+        <p class="recruit-subtitle">仲間を募集しています</p>
         <p>造園・土木・建設のプロとして、地域の未来をともにつくりませんか。経験者・未経験者ともに歓迎。グループ内でのキャリアアップも可能です。</p>
         <ul class="recruit-points">
           <li>✅ 未経験者歓迎・丁寧な研修あり</li>
@@ -846,7 +977,7 @@
           <li>✅ 資格取得支援制度あり</li>
           <li>✅ グループ内でのキャリアアップ</li>
         </ul>
-        <a class="btn-white" href="recruit.html">採用情報を見る</a>
+        <a class="btn-recruit-large" href="recruit.html">社員の声を見る</a>
       </div>
       <div class="recruit-img" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
         <img src="川崎1.jpg" alt="スタッフ 川崎さん" style="width: 100%; border-radius: 20px; object-fit: cover; height: 340px; box-shadow: 0 20px 60px rgba(0,0,0,0.28);">
@@ -887,12 +1018,12 @@
             <div class="qual-row">
               <div class="qual-name">1級 造園施工管理技士</div>
               <div class="qual-grade"><span class="grade-badge grade-1">1級</span></div>
-              <div class="qual-count">5名在籍</div>
+              <div class="qual-count">9名在籍</div>
             </div>
             <div class="qual-row">
               <div class="qual-name">2級 造園施工管理技士</div>
               <div class="qual-grade"><span class="grade-badge grade-2">2級</span></div>
-              <div class="qual-count">2名在籍</div>
+              <div class="qual-count">3名在籍</div>
             </div>
           </div>
         </div>
@@ -905,7 +1036,7 @@
             <div class="qual-row">
               <div class="qual-name">1級 土木施工管理技士</div>
               <div class="qual-grade"><span class="grade-badge grade-1">1級</span></div>
-              <div class="qual-count">3名在籍</div>
+              <div class="qual-count">5名在籍</div>
             </div>
           </div>
         </div>
@@ -934,7 +1065,7 @@
       <div class="footer-links">
         <a href="#about">グループについて</a>
         <a href="#services">事業内容</a>
-        <a href="#works">施工事例</a>
+        <a href="#works">施工実績</a>
         <a href="#recruit">採用情報</a>
         <a href="#qualifications">保有資格</a>
         <a href="#contact">お問い合わせ</a>
