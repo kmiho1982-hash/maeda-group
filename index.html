@@ -304,7 +304,7 @@
     
     .facility-grid-top {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 16px;
       margin-bottom: 16px;
     }
@@ -331,35 +331,25 @@
       display: block;
     }
     
+    /* 本社ビルだけ縦長表示 */
+    .facility-item.vertical img {
+      height: 380px;
+      object-fit: contain;
+      background: rgba(0,0,0,0.2);
+    }
+    
     .facility-label-tag {
       position: absolute;
       top: 12px;
       left: 12px;
-      background: rgba(90,173,212,0.85);
+      background: rgba(90,173,212,0.9);
       color: #fff;
       padding: 6px 16px;
       border-radius: 20px;
       font-size: 0.8rem;
       letter-spacing: 0.05em;
       font-weight: 500;
-    }
-    
-    .facility-item-title {
-      padding: 16px;
-      color: #fff;
-    }
-    
-    .facility-item-title h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-    
-    .facility-item-title p {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
     /* WORKS */
@@ -618,7 +608,7 @@
         
         <!-- 上段3枚 -->
         <div class="facility-grid-top">
-          <div class="facility-item">
+          <div class="facility-item vertical">
             <img src="本社.JPG" alt="本社ビル">
             <div class="facility-label-tag">本社・拠点</div>
           </div>
