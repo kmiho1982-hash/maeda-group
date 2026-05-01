@@ -369,6 +369,27 @@
       pointer-events: none;
     }
     
+    /* Facility Detail Button */
+    .facility-detail-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+    }
+    
+    .facility-detail-btn:hover {
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(45, 106, 79, 0.4);
+    }
+    
     /* Image Modal */
     .facility-modal {
       display: none;
@@ -711,30 +732,34 @@
       <div class="facility-block" style="padding-top: 60px;">
         <div class="facility-title">自社処分場</div>
         
-        <div class="facility-grid-container">
-          <!-- 左側2枚 -->
-          <div class="facility-right">
-            <div class="facility-item" onclick="openFacilityModal('熊取処分場1.JPG')">
-              <img src="熊取処分場1.JPG" alt="熊取処分場">
-              <div class="facility-label-tag">熊取処分場</div>
-            </div>
-            <div class="facility-item" onclick="openFacilityModal('熊取処分場2.JPG')">
-              <img src="熊取処分場2.JPG" alt="熊取処分場">
-              <div class="facility-label-tag">処分場施設</div>
-            </div>
+        <div class="facility-grid-container" style="grid-template-columns: 1fr 1fr;">
+          <!-- 左上2枚 -->
+          <div class="facility-item" onclick="openFacilityModal('熊取処分場1.JPG')">
+            <img src="熊取処分場1.JPG" alt="熊取処分場">
+            <div class="facility-label-tag">熊取処分場</div>
+          </div>
+          <div class="facility-item" onclick="openFacilityModal('熊取処分場2.JPG')">
+            <img src="熊取処分場2.JPG" alt="大型カッター">
+            <div class="facility-label-tag">大型カッター</div>
           </div>
           
-          <!-- 右側2枚 -->
-          <div class="facility-right">
-            <div class="facility-item" onclick="openFacilityModal('熊取処分場3.JPG')">
-              <img src="熊取処分場3.JPG" alt="熊取処分場">
-              <div class="facility-label-tag">破砕機</div>
-            </div>
-            <div class="facility-item" onclick="openFacilityModal('熊取処分場4.png')">
-              <img src="熊取処分場4.png" alt="熊取処分場">
-              <div class="facility-label-tag">リサイクル設備</div>
-            </div>
+          <!-- 左下2枚 -->
+          <div class="facility-item" onclick="openFacilityModal('熊取処分場3.JPG')">
+            <img src="熊取処分場3.JPG" alt="処理材">
+            <div class="facility-label-tag">処理材</div>
           </div>
+          <div class="facility-item" onclick="openFacilityModal('熊取処分場4.png')">
+            <img src="熊取処分場4.png" alt="破砕機">
+            <div class="facility-label-tag">破砕機</div>
+          </div>
+        </div>
+        
+        <!-- 熊取処分場ページへのボタン -->
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="kumatori.html" class="facility-detail-btn">
+            熊取処分場の詳細を見る
+            <span style="margin-left: 8px;">→</span>
+          </a>
         </div>
       </div>
 
