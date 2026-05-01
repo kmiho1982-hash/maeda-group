@@ -214,9 +214,115 @@
       margin-top: 80px;
     }
     
+    /* Hero Image */
+    .hero-image-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      cursor: pointer;
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hero-image:hover {
+      opacity: 0.95;
+    }
+    
+    /* Inline Facility Photos */
+    .inline-photo {
+      margin: 30px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    .inline-photo:hover {
+      transform: scale(1.02);
+    }
+    
+    .inline-photo img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .inline-photo-caption {
+      background: #f0fdf4;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: #1b4332;
+      font-weight: 500;
+      border-left: 3px solid #2d6a4f;
+    }
+    
+    /* Image Modal */
+    .facility-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .facility-modal.active {
+      display: flex;
+    }
+    
+    .facility-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      animation: zoomIn 0.3s ease;
+    }
+    
+    .facility-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    
+    .facility-modal-close:hover {
+      color: #ccc;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
     @media (max-width: 768px) {
       .feature-grid {
         grid-template-columns: 1fr;
+      }
+      .hero-image {
+        height: 250px;
       }
     }
   </style>
@@ -228,6 +334,11 @@
     <h1>熊取処分場</h1>
     <p>KUMATORI WOOD RECYCLING FACILITY</p>
   </header>
+  
+  <!-- ヘッダー画像 -->
+  <div class="hero-image-container">
+    <img src="熊取処分場1.JPG" alt="熊取処分場" class="hero-image" onclick="openFacilityModal('熊取処分場1.JPG')">
+  </div>
   
   <div class="content">
     <!-- イントロダクション -->
@@ -264,6 +375,12 @@
         <div class="feature-card">
           <h3>■ 受入項目</h3>
           <p>現場から発生するあらゆる木質廃材に柔軟に対応します。</p>
+          
+          <div class="inline-photo" onclick="openFacilityModal('熊取処分場2.JPG')">
+            <img src="熊取処分場2.JPG" alt="処分場施設">
+            <div class="inline-photo-caption">処分場施設</div>
+          </div>
+          
           <ul class="feature-list" style="margin-top: 16px;">
             <li>枝葉・剪定枝の受入<br><small>公園管理や街路樹剪定で発生する細かな枝葉の引き取り</small></li>
             <li>幹・大径木の受入<br><small>伐採工事等で発生する重量のある幹や丸太の処理</small></li>
@@ -302,6 +419,34 @@
       <p>高性能破砕機による効率的な処理と、バイオマス燃料・マルチング材・堆肥への多様な再利用により、CO2削減と地域の緑化推進を両立させています。</p>
     </div>
   </div>
+  
+  <!-- Image Modal -->
+  <div id="facilityModal" class="facility-modal" onclick="closeFacilityModal()">
+    <span class="facility-modal-close">&times;</span>
+    <img id="facilityModalImg" src="" alt="">
+  </div>
+  
+  <script>
+    function openFacilityModal(imageSrc) {
+      const modal = document.getElementById('facilityModal');
+      const modalImg = document.getElementById('facilityModalImg');
+      modal.classList.add('active');
+      modalImg.src = imageSrc;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFacilityModal() {
+      const modal = document.getElementById('facilityModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeFacilityModal();
+      }
+    });
+  </script>
   
   <footer>
     <p>&copy; 前田建設グループ All Rights Reserved.</p>
