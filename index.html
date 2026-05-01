@@ -323,6 +323,12 @@
       border-radius: 12px;
       overflow: hidden;
       background: rgba(255,255,255,0.05);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    .facility-item:hover {
+      transform: scale(1.02);
     }
     
     .facility-item img {
@@ -360,6 +366,60 @@
       letter-spacing: 0.05em;
       font-weight: 500;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      pointer-events: none;
+    }
+    
+    /* Image Modal */
+    .facility-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .facility-modal.active {
+      display: flex;
+    }
+    
+    .facility-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      animation: zoomIn 0.3s ease;
+    }
+    
+    .facility-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    
+    .facility-modal-close:hover {
+      color: #ccc;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     /* WORKS */
@@ -619,7 +679,7 @@
         <div class="facility-grid-container">
           <!-- 左側：本社ビル（大きく縦長） -->
           <div class="facility-left">
-            <div class="facility-item">
+            <div class="facility-item" onclick="openFacilityModal('本社.JPG')">
               <img src="本社.JPG" alt="本社ビル">
               <div class="facility-label-tag">本社・拠点</div>
             </div>
@@ -627,25 +687,81 @@
           
           <!-- 右側：2x2グリッド -->
           <div class="facility-right">
-            <div class="facility-item">
+            <div class="facility-item" onclick="openFacilityModal('事務所.JPG')">
               <img src="事務所.JPG" alt="2階">
               <div class="facility-label-tag">2階</div>
             </div>
-            <div class="facility-item">
+            <div class="facility-item" onclick="openFacilityModal('応接室.JPG')">
               <img src="応接室.JPG" alt="応接室">
               <div class="facility-label-tag">応接室</div>
             </div>
-            <div class="facility-item">
+            <div class="facility-item" onclick="openFacilityModal('3階.png')">
               <img src="3階.png" alt="3階">
               <div class="facility-label-tag">3階</div>
             </div>
-            <div class="facility-item">
+            <div class="facility-item" onclick="openFacilityModal('会議室.JPG')">
               <img src="会議室.JPG" alt="会議室">
               <div class="facility-label-tag">会議室</div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- 自社処分場 -->
+      <div class="facility-block" style="padding-top: 60px;">
+        <div class="facility-title">自社処分場</div>
+        
+        <div class="facility-grid-container">
+          <!-- 左側：熊取処分場1（大きく） -->
+          <div class="facility-left">
+            <div class="facility-item" onclick="openFacilityModal('熊取処分場1.JPG')">
+              <img src="熊取処分場1.JPG" alt="熊取処分場">
+              <div class="facility-label-tag">熊取処分場</div>
+            </div>
+          </div>
+          
+          <!-- 右側：2枚縦並び -->
+          <div class="facility-right" style="grid-template-columns: 1fr; grid-template-rows: 1fr 1fr;">
+            <div class="facility-item" onclick="openFacilityModal('熊取処分場2.JPG')">
+              <img src="熊取処分場2.JPG" alt="熊取処分場">
+              <div class="facility-label-tag">処分場施設</div>
+            </div>
+            <div class="facility-item" onclick="openFacilityModal('熊取処分場3.JPG')">
+              <img src="熊取処分場3.JPG" alt="熊取処分場">
+              <div class="facility-label-tag">破砕機</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Modal -->
+      <div id="facilityModal" class="facility-modal" onclick="closeFacilityModal()">
+        <span class="facility-modal-close">&times;</span>
+        <img id="facilityModalImg" src="" alt="">
+      </div>
+
+      <script>
+        function openFacilityModal(imageSrc) {
+          const modal = document.getElementById('facilityModal');
+          const modalImg = document.getElementById('facilityModalImg');
+          modal.classList.add('active');
+          modalImg.src = imageSrc;
+          document.body.style.overflow = 'hidden'; // スクロール防止
+        }
+
+        function closeFacilityModal() {
+          const modal = document.getElementById('facilityModal');
+          modal.classList.remove('active');
+          document.body.style.overflow = ''; // スクロール復帰
+        }
+
+        // ESCキーでも閉じる
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape') {
+            closeFacilityModal();
+          }
+        });
+      </script>
 
     </div>
   </section>
