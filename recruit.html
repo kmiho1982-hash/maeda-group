@@ -16,7 +16,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans JP', sans-serif; background: var(--sky-light); color: var(--ink); }
 
-    nav { background: var(--sky-deep); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(90,173,212,0.35); }
+    nav { background: #2f4f4f; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.3); }
     .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 20px; align-items: center; }
     .nav-inner::-webkit-scrollbar { display: none; }
     .nav-logo { font-family: 'Shippori Mincho', serif; color: #fff; font-size: 1rem; letter-spacing: 0.1em; padding: 15px 22px 15px 0; text-decoration: none; white-space: nowrap; border-right: 1px solid rgba(255,255,255,0.2); margin-right: 8px; }
@@ -32,46 +32,23 @@
     .section-label { font-size: 0.68rem; letter-spacing: 0.32em; color: var(--sky-deep); margin-bottom: 8px; }
     .section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--ink); margin-bottom: 36px; }
 
-    /* BENEFITS */
-    .benefits-section { background: #fff; padding: 80px 20px; }
-    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; }
-    .benefit-card { background: var(--sky-light); border-radius: 16px; padding: 28px 20px; text-align: center; border: 1px solid rgba(90,173,212,0.18); }
-    .benefit-icon { font-size: 2rem; margin-bottom: 14px; }
-    .benefit-title { font-family: 'Shippori Mincho', serif; font-size: 1rem; color: var(--ink); margin-bottom: 8px; }
-    .benefit-desc { font-size: 0.82rem; color: var(--ink-light); line-height: 1.7; }
-
-    /* CAREER */
-    .career-section { background: var(--sky-light); padding: 80px 20px; }
-    .career-steps { display: flex; gap: 0; align-items: stretch; }
-    .career-step { flex: 1; padding: 28px 16px; background: #fff; border: 1px solid rgba(90,173,212,0.18); position: relative; text-align: center; }
-    .career-step:not(:last-child)::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--sky-deep); z-index: 1; }
-    .career-step:first-child { border-radius: 14px 0 0 14px; }
-    .career-step:last-child  { border-radius: 0 14px 14px 0; }
-    .step-num { width: 28px; height: 28px; background: var(--sky-deep); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 0 auto 10px; }
-    .step-title { font-family: 'Shippori Mincho', serif; font-size: 0.9rem; color: var(--ink); margin-bottom: 6px; }
-    .step-desc { font-size: 0.75rem; color: var(--ink-light); line-height: 1.6; }
-
-    /* INTERVIEW */
+    /* INTERVIEW - Now first section */
     .interview-section { background: #fff; padding: 80px 20px; }
-
     .interview-card { border-radius: 20px; overflow: hidden; border: 1px solid rgba(90,173,212,0.15); box-shadow: 0 4px 30px rgba(90,173,212,0.1); }
 
-    /* 写真帯：横長2枚並べ */
-    .interview-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      height: 300px;
-      gap: 4px;
+    /* Single photo */
+    .interview-photo {
+      height: 350px;
       position: relative;
       z-index: 0;
     }
-    .interview-photos img {
+    .interview-photo img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center 35%;
       display: block;
     }
 
-    /* プロフィール帯 */
+    /* Profile bar */
     .interview-profile-bar {
       background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
       padding: 24px 36px;
@@ -99,11 +76,57 @@
     .q-text { font-size: 0.9rem; font-weight: 500; color: var(--ink); line-height: 1.6; }
     .a-text { font-size: 0.88rem; color: var(--ink-light); line-height: 1.9; }
 
+    /* BENEFITS - Enhanced styling */
+    .benefits-section { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 80px 20px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 24px; }
+    .benefit-card { 
+      background: linear-gradient(135deg, #ffffff 0%, #f8fcff 100%); 
+      border-radius: 16px; 
+      padding: 32px 24px; 
+      text-align: center; 
+      border: 2px solid rgba(90,173,212,0.2); 
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(90,173,212,0.1);
+    }
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(90,173,212,0.2);
+      border-color: rgba(90,173,212,0.4);
+    }
+    .benefit-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .benefit-title { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 10px; font-weight: 600; }
+    .benefit-desc { font-size: 0.85rem; color: var(--ink-light); line-height: 1.8; }
+
+    /* CAREER */
+    .career-section { background: var(--sky-light); padding: 80px 20px; }
+    .career-steps { display: flex; gap: 0; align-items: stretch; }
+    .career-step { flex: 1; padding: 28px 16px; background: #fff; border: 1px solid rgba(90,173,212,0.18); position: relative; text-align: center; }
+    .career-step:not(:last-child)::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--sky-deep); z-index: 1; }
+    .career-step:first-child { border-radius: 14px 0 0 14px; }
+    .career-step:last-child  { border-radius: 0 14px 14px 0; }
+    .step-num { width: 28px; height: 28px; background: var(--sky-deep); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 0 auto 10px; }
+    .step-title { font-family: 'Shippori Mincho', serif; font-size: 0.9rem; color: var(--ink); margin-bottom: 6px; }
+    .step-desc { font-size: 0.75rem; color: var(--ink-light); line-height: 1.6; }
+
     /* CTA */
-    .cta-section { background: linear-gradient(135deg, var(--navy), #2d6a9f); padding: 80px 20px; text-align: center; }
+    .cta-section { background: #3cb371; padding: 80px 20px; text-align: center; }
     .cta-section h2 { font-family: 'Shippori Mincho', serif; font-size: clamp(1.5rem,3vw,2rem); color: #fff; margin-bottom: 16px; }
-    .cta-section p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 36px; line-height: 1.9; }
-    .btn-white { display: inline-block; padding: 14px 40px; background: #fff; color: var(--navy); border-radius: 30px; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; transition: opacity 0.2s; text-decoration: none; }
+    .cta-section p { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-bottom: 36px; line-height: 1.9; }
+    .cta-photos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+    .cta-photos img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .btn-white { display: inline-block; padding: 14px 40px; background: #fff; color: #3cb371; border-radius: 30px; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; transition: opacity 0.2s; text-decoration: none; }
     .btn-white:hover { opacity: 0.85; }
 
     footer { background: #111e27; padding: 40px 20px 24px; text-align: center; }
@@ -111,7 +134,7 @@
     .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
 
     @media (max-width: 768px) {
-      .interview-photos { height: 200px; }
+      .interview-photo { height: 250px; }
       .interview-profile-bar { flex-direction: column; padding: 20px; }
       .interview-body { padding: 24px; }
       .career-steps { flex-direction: column; }
@@ -119,6 +142,7 @@
       .career-step:first-child { border-radius: 14px 14px 0 0; }
       .career-step:last-child  { border-radius: 0 0 14px 14px; }
       .career-step:not(:last-child)::after { content: '↓'; right: 50%; bottom: -14px; top: auto; transform: translateX(50%); }
+      .cta-photos { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -129,7 +153,7 @@
       <a class="nav-logo" href="index.html">前田グループ</a>
       <a class="nav-item" href="index.html#about">グループについて</a>
       <a class="nav-item" href="index.html#services">事業内容</a>
-      <a class="nav-item" href="works.html">施工事例</a>
+      <a class="nav-item" href="works.html">施工実績</a>
       <a class="nav-item active">採用情報</a>
       <a class="nav-item" href="index.html#contact">お問い合わせ</a>
     </div>
@@ -141,41 +165,147 @@
     <p class="page-header-sub">前田グループで、緑とともに働きませんか</p>
   </div>
 
-  <!-- 待遇 -->
+  <!-- 社員の声（先頭に配置） -->
+  <section class="interview-section">
+    <div class="section-inner">
+      <div class="section-label">VOICE</div>
+      <h2 class="section-title">社員の声</h2>
+
+      <div class="interview-card">
+        <!-- 写真1枚 -->
+        <div class="interview-photo">
+          <img src="川崎2.jpg" alt="川崎さん">
+        </div>
+
+        <!-- プロフィール帯 -->
+        <div class="interview-profile-bar">
+          <div>
+            <h3 class="interview-name">川崎さん</h3>
+            <div class="interview-meta">
+              入社5年目・造園職<br>
+              前職：銀行員
+            </div>
+            <span class="interview-tag">異業種からの転職</span>
+          </div>
+        </div>
+
+        <!-- Q&A -->
+        <div class="interview-body">
+          <div class="qa-item">
+            <div class="qa-question">
+              <span class="q-badge">Q</span>
+              <p class="q-text">前職は銀行員だったそうですね。転職のきっかけは？</p>
+            </div>
+            <div class="qa-answer">
+              <span class="a-badge">A</span>
+              <p class="a-text">銀行の仕事も充実していましたが、もっと体を動かして、自然に関わる仕事がしたいという気持ちがずっとありました。前田グループに入ってからは、毎日外で緑に触れながら働けて、前職と比べてストレスが圧倒的に減りました。身体を動かすと気持ちいいんですよ（笑）。</p>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <span class="q-badge">Q</span>
+              <p class="q-text">仕事の中で特に楽しいことは？</p>
+            </div>
+            <div class="qa-answer">
+              <span class="a-badge">A</span>
+              <p class="a-text">剪定がすごく面白いです。同じ木でも、担当する人によって仕上がりが全然変わる。高い木の剪定は正直怖さもありますが、それだけにやりがいがあります。公園の新設工事に携わったときは本当に嬉しかった。完成した公園がずっと残って、子供たちが遊んでいるのを見ると、「この仕事をしていてよかった」と心から思います。</p>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <span class="q-badge">Q</span>
+              <p class="q-text">やりがいを感じるのはどんな時ですか？</p>
+            </div>
+            <div class="qa-answer">
+              <span class="a-badge">A</span>
+              <p class="a-text">公園の新設工事に携わった時は本当に嬉しかった。完成した公園がずっと残って、子供たちが遊んでいる姿を見ると、「この仕事をしていてよかった」と心から思います。自分たちが作ったものが、何十年も地域の人々に愛され続ける。それが造園の仕事の魅力だと思います。</p>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <span class="q-badge">Q</span>
+              <p class="q-text">取得した資格を教えてください</p>
+            </div>
+            <div class="qa-answer">
+              <span class="a-badge">A</span>
+              <p class="a-text">入社後、会社の支援制度を利用して様々な資格を取得しました。振動工具、高所作業車、玉掛、チェーンソー、街路樹剪定枝、小型移動式クレーンなど。未経験からのスタートでしたが、先輩方の丁寧な指導と、資格取得支援のおかげで、着実にステップアップできています。</p>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <span class="q-badge">Q</span>
+              <p class="q-text">現在の仕事の状況を教えてください。</p>
+            </div>
+            <div class="qa-answer">
+              <span class="a-badge">A</span>
+              <p class="a-text">今は大阪市の大きな工事で現場代理人を任せてもらっています。入社5年で現場代理人になれたのは、会社が若い人にどんどん機会を与えてくれるからだと思います。最近は結婚もして、10日間の新婚旅行にも行かせてもらいました。プライベートも充実しています。</p>
+            </div>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-question">
+              <span class="q-badge">Q</span>
+              <p class="q-text">今後の目標を聞かせてください。</p>
+            </div>
+            <div class="qa-answer">
+              <span class="a-badge">A</span>
+              <p class="a-text">今年は造園施工管理技士1級の取得を目指しています。会社も資格取得をサポートしてくれるので、しっかり勉強したい。これからもっと新しい仲間を迎えて、チームとして会社を大きくしていきたいですね。未経験でも絶対大丈夫なので、ぜひ一緒に働きましょう！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 待遇・福利厚生 -->
   <section class="benefits-section">
     <div class="section-inner">
       <div class="section-label">BENEFITS</div>
       <h2 class="section-title">待遇・福利厚生</h2>
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="benefit-icon">📈</div>
-          <div class="benefit-title">年次昇給あり</div>
-          <div class="benefit-desc">頑張りをしっかり評価。毎年昇給の機会があります。</div>
+          <div class="benefit-icon">💰</div>
+          <h3 class="benefit-title">給与・昇給</h3>
+          <p class="benefit-desc">年次昇給あり。ボーナス年2回支給。頑張りはしっかり評価します。</p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🗓️</div>
-          <div class="benefit-title">週休二日制</div>
-          <div class="benefit-desc">オンオフのメリハリをつけて働ける環境です。</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🎁</div>
-          <div class="benefit-title">ボーナス年2回</div>
-          <div class="benefit-desc">夏・冬の賞与で、モチベーション高く働けます。</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🏖️</div>
-          <div class="benefit-title">有給休暇取得</div>
-          <div class="benefit-desc">有給休暇をしっかり取得できる職場環境です。</div>
+          <div class="benefit-icon">📅</div>
+          <h3 class="benefit-title">休日・休暇</h3>
+          <p class="benefit-desc">週休二日制。有給休暇取得推奨。年末年始・夏季休暇あり。</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">🎓</div>
-          <div class="benefit-title">資格取得支援</div>
-          <div class="benefit-desc">造園・土木施工管理技士などの資格取得を会社がサポート。</div>
+          <h3 class="benefit-title">資格取得支援</h3>
+          <p class="benefit-desc">造園施工管理技士など、業務に必要な資格の取得を全面的にサポート。</p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🌱</div>
-          <div class="benefit-title">キャリアアップ</div>
-          <div class="benefit-desc">グループ5社内でのステップアップや異動も可能です。</div>
+          <div class="benefit-icon">🏥</div>
+          <h3 class="benefit-title">社会保険完備</h3>
+          <p class="benefit-desc">健康保険・厚生年金・雇用保険・労災保険完備。安心して働けます。</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🚗</div>
+          <h3 class="benefit-title">通勤手当</h3>
+          <p class="benefit-desc">通勤にかかる費用を支給。マイカー通勤も可能です。</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">✈️</div>
+          <h3 class="benefit-title">社員旅行</h3>
+          <p class="benefit-desc">年1回の社員旅行を実施。社員同士の交流を深める機会を大切にしています。</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">👔</div>
+          <h3 class="benefit-title">作業服貸与</h3>
+          <p class="benefit-desc">作業に必要な服装や装備は会社が貸与。初期費用の心配なし。</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3 class="benefit-title">キャリアアップ</h3>
+          <p class="benefit-desc">グループ内でのキャリアパスも豊富。将来の可能性が広がります。</p>
         </div>
       </div>
     </div>
@@ -184,124 +314,49 @@
   <!-- キャリアパス -->
   <section class="career-section">
     <div class="section-inner">
-      <div class="section-label">CAREER PATH</div>
+      <div class="section-label">CAREER</div>
       <h2 class="section-title">キャリアパス</h2>
       <div class="career-steps">
         <div class="career-step">
           <div class="step-num">1</div>
-          <div class="step-title">入社・研修</div>
-          <div class="step-desc">先輩社員と一緒に現場を学ぶ。未経験でも安心。</div>
+          <h3 class="step-title">入社〜1年目</h3>
+          <p class="step-desc">基礎研修を通じて、造園・土木の基本を学びます。先輩社員のサポートのもと、実践的なスキルを習得。</p>
         </div>
         <div class="career-step">
           <div class="step-num">2</div>
-          <div class="step-title">現場施工</div>
-          <div class="step-desc">担当エリアを持ち、技術を磨く。</div>
+          <h3 class="step-title">2〜3年目</h3>
+          <p class="step-desc">現場の中核メンバーとして活躍。2級造園施工管理技士などの資格取得を目指します。</p>
         </div>
         <div class="career-step">
           <div class="step-num">3</div>
-          <div class="step-title">資格取得</div>
-          <div class="step-desc">造園・土木施工管理技士などに挑戦。</div>
+          <h3 class="step-title">4〜5年目</h3>
+          <p class="step-desc">現場のリーダーとして、工事全体を管理。1級造園施工管理技士などの上位資格にチャレンジ。</p>
         </div>
         <div class="career-step">
           <div class="step-num">4</div>
-          <div class="step-title">現場代理人</div>
-          <div class="step-desc">大型公共工事の現場を任される。</div>
+          <h3 class="step-title">6年目以降</h3>
+          <p class="step-desc">管理職や専門職として、会社の中核を担う。グループ内での異動や新しい挑戦も可能です。</p>
         </div>
-        <div class="career-step">
-          <div class="step-num">5</div>
-          <div class="step-title">リーダー・管理職</div>
-          <div class="step-desc">チームをまとめ、会社を支える存在へ。</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 社員インタビュー -->
-  <section class="interview-section">
-    <div class="section-inner">
-      <div class="section-label">STAFF INTERVIEW</div>
-      <h2 class="section-title">社員の声</h2>
-
-      <div class="interview-card">
-
-        <!-- 写真：横2枚、上部に大きく -->
-        <div class="interview-photos">
-          <img src="川崎2.jpg" alt="川崎さん 現場1">
-          <img src="川崎3.jpg" alt="川崎さん 現場2">
-        </div>
-
-        <!-- プロフィール帯 -->
-        <div class="interview-profile-bar">
-          <div>
-            <div class="interview-name">川崎　さん</div>
-            <div class="interview-meta">
-              勤続5年目　／　現場代理人（大阪市 大規模工事担当）<br>
-              前職：銀行員
-            </div>
-            <span class="interview-tag">造園施工管理技士1級 取得目標</span>
-          </div>
-        </div>
-
-        <!-- Q&A -->
-        <div class="interview-body">
-          <div class="qa-item">
-            <div class="qa-question">
-              <div class="q-badge">Q</div>
-              <div class="q-text">前職は銀行員だったそうですね。転職のきっかけは？</div>
-            </div>
-            <div class="qa-answer">
-              <div class="a-badge">A</div>
-              <div class="a-text">銀行の仕事も充実していましたが、もっと体を動かして、自然に関わる仕事がしたいという気持ちがずっとありました。前田グループに入ってからは、毎日外で緑に触れながら働けて、前職と比べてストレスが圧倒的に減りました。身体を動かすと気持ちいいんですよ（笑）。</div>
-            </div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-question">
-              <div class="q-badge">Q</div>
-              <div class="q-text">仕事のなかで特に楽しいことは？</div>
-            </div>
-            <div class="qa-answer">
-              <div class="a-badge">A</div>
-              <div class="a-text">剪定がすごく面白いです。同じ木でも、担当する人によって仕上がりが全然変わる。高い木の剪定は正直怖さもありますが、それだけにやりがいがあります。公園の新設工事に携わったときは本当に嬉しかった。完成した公園がずっと残って、子供たちが遊んでいるのを見ると、「この仕事をしていてよかった」と心から思います。</div>
-            </div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-question">
-              <div class="q-badge">Q</div>
-              <div class="q-text">現在の仕事の状況を教えてください。</div>
-            </div>
-            <div class="qa-answer">
-              <div class="a-badge">A</div>
-              <div class="a-text">今は大阪市の大きな工事で現場代理人を任せてもらっています。入社5年で現場代理人になれたのは、会社が若い人にどんどん機会を与えてくれるからだと思います。最近は結婚もして、10日間の新婚旅行にも行かせてもらいました。プライベートも充実しています。</div>
-            </div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-question">
-              <div class="q-badge">Q</div>
-              <div class="q-text">今後の目標を聞かせてください。</div>
-            </div>
-            <div class="qa-answer">
-              <div class="a-badge">A</div>
-              <div class="a-text">今年は造園施工管理技士1級の取得を目指しています。会社も資格取得をサポートしてくれるので、しっかり勉強したい。これからもっと新しい仲間を迎えて、チームとして会社を大きくしていきたいですね。未経験でも絶対大丈夫なので、ぜひ一緒に働きましょう！</div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="section-inner">
-      <h2>一緒に働きませんか？</h2>
-      <p>経験・未経験問わず歓迎しています。<br>まずはお気軽にお問い合わせください。</p>
-      <a class="btn-white" href="index.html#contact">📋 応募・お問い合わせはこちら</a>
+    <h2>一緒に働きませんか</h2>
+    <p>造園・土木・建設のプロフェッショナルとして、<br>地域の未来を一緒につくりましょう。</p>
+    <div class="cta-photos">
+      <img src="川崎1.jpg" alt="スタッフ 川崎さん">
+      <img src="りか.JPG" alt="スタッフ りかさん">
+      <img src="こうじ.png" alt="スタッフ こうじさん">
+      <img src="健佑.png" alt="スタッフ 健佑さん">
     </div>
+    <a class="btn-white" href="index.html#contact">お問い合わせ</a>
   </section>
 
   <footer>
-    <div class="footer-logo">前田グループ</div>
-    <p class="footer-copy">© 2025 Maeda Group. All rights reserved.</p>
+    <div class="footer-logo">前田建設グループ</div>
+    <div class="footer-copy">&copy; 前田建設グループ All Rights Reserved.</div>
   </footer>
 
 </body>

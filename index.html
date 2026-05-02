@@ -53,8 +53,17 @@
       animation: fadeDown 0.8s ease 0.15s both;
     }
     .group-tagline {
-      margin-top: 14px; font-size: 0.9rem; color: rgba(255,255,255,0.75);
-      letter-spacing: 0.3em; font-weight: 300; animation: fadeDown 0.8s ease 0.3s both;
+      margin-top: 24px; 
+      font-size: 1.8rem; 
+      color: #2e8b57;
+      letter-spacing: 0.15em; 
+      font-weight: 700; 
+      animation: fadeDown 0.8s ease 0.3s both;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 0 20px rgba(46,139,87,0.4);
+      background: rgba(255,255,255,0.95);
+      padding: 16px 40px;
+      border-radius: 8px;
+      display: inline-block;
     }
     .tagline-divider { display: inline-block; margin: 0 8px; color: var(--sky-deep); opacity: 0.8; }
     @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
@@ -62,7 +71,7 @@
 
     /* COMPANIES BAR - Minimal Design with Impact */
     .companies-bar {
-      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 50%, #6ee7b7 100%);
+      background: #8fbc8f;
       padding: 80px 40px;
     }
     .companies-inner {
@@ -162,7 +171,7 @@
     }
 
     /* NAV */
-    nav { background: var(--sky-deep); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(90,173,212,0.35); }
+    nav { background: #2f4f4f; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.3); }
     .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 20px; }
     .nav-inner::-webkit-scrollbar { display: none; }
     .nav-item { color: rgba(255,255,255,0.85); font-size: 0.82rem; letter-spacing: 0.1em; padding: 15px 22px; cursor: pointer; transition: background 0.2s, color 0.2s; white-space: nowrap; text-decoration: none; display: block; font-weight: 300; }
@@ -449,7 +458,8 @@
     .work-card { border-radius: 16px; overflow: hidden; border: 1px solid rgba(90,173,212,0.14); transition: box-shadow 0.25s; }
     .work-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
     .work-card.large { grid-row: span 2; display: flex; flex-direction: column; }
-    .work-img { width: 100%; height: 210px; object-fit: cover; flex-shrink: 0; display: block; }
+    .work-img { width: 100%; height: 210px; object-fit: cover; flex-shrink: 0; display: block; cursor: pointer; transition: opacity 0.2s; }
+    .work-img:hover { opacity: 0.9; }
     .work-card.large .work-img { flex: 1; height: auto; min-height: 280px; }
     .work-info { padding: 20px; }
     .work-tag { display: inline-block; font-size: 0.68rem; background: var(--sky-light); color: var(--sky-deep); border: 1px solid rgba(90,173,212,0.5); border-radius: 20px; padding: 2px 12px; margin-bottom: 10px; letter-spacing: 0.1em; }
@@ -483,11 +493,11 @@
       padding: 100px 40px;
     }
     .president-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 60px;
+      grid-template-columns: 450px 1fr;
+      gap: 80px;
       align-items: center;
     }
     .president-photo {
@@ -495,20 +505,22 @@
     }
     .president-photo img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      border: 4px solid #fff;
     }
     .president-photo-label {
       position: absolute;
-      bottom: 16px;
-      left: 16px;
+      bottom: 20px;
+      left: 20px;
       background: rgba(45, 106, 79, 0.95);
       color: #fff;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     .president-content .section-label {
       color: #2d6a4f;
@@ -548,6 +560,13 @@
     
     /* RECRUIT */
     .recruit-section { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); padding: 88px 20px; }
+    .recruit-subtitle-main {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
     .recruit-subtitle {
       font-size: 1.1rem;
       font-weight: 600;
@@ -583,10 +602,10 @@
     .recruit-img img { width: 100%; border-radius: 20px; object-fit: cover; height: 340px; box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
 
     /* QUALIFICATIONS */
-    .qualifications-section { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 80px 20px; }
-    .qualifications-section .section-label { color: #2d6a4f; }
-    .qualifications-section .section-title { color: #1b4332; margin-bottom: 12px; }
-    .qual-lead { font-size: 0.88rem; color: #1b4332; line-height: 1.95; margin-bottom: 48px; }
+    .qualifications-section { background: #556b2f; padding: 80px 20px; }
+    .qualifications-section .section-label { color: #d4e7c5; }
+    .qualifications-section .section-title { color: #fff; margin-bottom: 12px; }
+    .qual-lead { font-size: 0.88rem; color: rgba(255,255,255,0.85); line-height: 1.95; margin-bottom: 48px; }
     .qual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; }
     .qual-block { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 16px; overflow: hidden; }
     .qual-block-header { display: flex; align-items: center; gap: 12px; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); }
@@ -604,8 +623,9 @@
     .grade-1    { background: var(--gold); color: #fff; }
     .grade-2    { background: rgba(130,210,255,0.4); color: #d0f0ff; border: 1px solid rgba(130,210,255,0.6); }
     .grade-tree { background: linear-gradient(135deg,#2d8a5c,#52d488); color: #fff; font-size: 0.6rem; width: 36px; border-radius: 6px; }
+    .grade-special { background: rgba(168,219,168,0.4); color: #d4e7c5; border: 1px solid rgba(168,219,168,0.6); font-size: 0.6rem; width: 36px; border-radius: 6px; }
     .qual-count { font-size: 0.85rem; color: #b0e0ff; white-space: nowrap; min-width: 60px; text-align: right; font-weight: 500; }
-    .qual-note { margin-top: 36px; padding: 16px 22px; background: rgba(45,106,79,0.1); border-radius: 10px; border-left: 3px solid #2d6a4f; font-size: 0.78rem; color: #1b4332; line-height: 1.95; }
+    .qual-note { margin-top: 36px; padding: 16px 22px; background: rgba(255,255,255,0.1); border-radius: 10px; border-left: 3px solid #d4e7c5; font-size: 0.78rem; color: rgba(255,255,255,0.7); line-height: 1.95; }
 
     /* CONTACT */
     .contact-section { background: var(--sky-light); padding: 88px 20px; }
@@ -913,7 +933,7 @@
       <h2 class="section-title">施工実績</h2>
       <div class="works-grid">
         <div class="work-card large">
-          <img class="work-img" src="山田池公園.png" alt="山田池公園 自由広場等改修工事">
+          <img class="work-img" src="山田池公園.png" alt="山田池公園 自由広場等改修工事" onclick="openFacilityModal('山田池公園.png')">
           <div class="work-info">
             <span class="work-tag">造園・公園整備</span>
             <h3>山田池公園　自由広場等改修工事</h3>
@@ -921,7 +941,7 @@
           </div>
         </div>
         <div class="work-card">
-          <img class="work-img" src="UR南港.png" alt="南港ひかりの他12団地植物管理工事">
+          <img class="work-img" src="UR南港.png" alt="南港ひかりの他12団地植物管理工事" onclick="openFacilityModal('UR南港.png')">
           <div class="work-info">
             <span class="work-tag">維持管理</span>
             <h3>南港ひかりの他12団地植物管理工事</h3>
@@ -929,7 +949,7 @@
           </div>
         </div>
         <div class="work-card">
-          <img class="work-img" src="浜寺公園.png" alt="浜寺公園　中央花壇周辺改修工事">
+          <img class="work-img" src="浜寺公園.png" alt="浜寺公園　中央花壇周辺改修工理" onclick="openFacilityModal('浜寺公園.png')">
           <div class="work-info">
             <span class="work-tag">公園工事</span>
             <h3>浜寺公園　中央花壇周辺改修工事</h3>
@@ -967,8 +987,8 @@
     <div class="recruit-inner">
       <div class="recruit-text">
         <div class="section-label">RECRUIT</div>
+        <p class="recruit-subtitle-main">仲間を募集しています</p>
         <h2 class="section-title">わたしたちといっしょにはたらきませんか</h2>
-        <p class="recruit-subtitle">仲間を募集しています</p>
         <p>造園・土木・建設のプロとして、地域の未来をともにつくりませんか。経験者・未経験者ともに歓迎。グループ内でのキャリアアップも可能です。</p>
         <ul class="recruit-points">
           <li>✅ 未経験者歓迎・丁寧な研修あり</li>
@@ -979,9 +999,11 @@
         </ul>
         <a class="btn-recruit-large" href="recruit.html">社員の声を見る</a>
       </div>
-      <div class="recruit-img" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-        <img src="川崎1.jpg" alt="スタッフ 川崎さん" style="width: 100%; border-radius: 20px; object-fit: cover; height: 340px; box-shadow: 0 20px 60px rgba(0,0,0,0.28);">
-        <img src="りか.JPG" alt="スタッフ りかさん" style="width: 100%; border-radius: 20px; object-fit: cover; height: 340px; box-shadow: 0 20px 60px rgba(0,0,0,0.28);">
+      <div class="recruit-img" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; height: 680px;">
+        <img src="川崎1.jpg" alt="スタッフ 川崎さん" style="width: 100%; border-radius: 20px; object-fit: cover; height: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.28);">
+        <img src="りか.JPG" alt="スタッフ りかさん" style="width: 100%; border-radius: 20px; object-fit: cover; height: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.28);">
+        <img src="こうじ.png" alt="スタッフ こうじさん" style="width: 100%; border-radius: 20px; object-fit: cover; height: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.28);">
+        <img src="健佑.png" alt="スタッフ 健佑さん" style="width: 100%; border-radius: 20px; object-fit: cover; height: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.28);">
       </div>
     </div>
   </section>
@@ -1037,6 +1059,19 @@
               <div class="qual-name">1級 土木施工管理技士</div>
               <div class="qual-grade"><span class="grade-badge grade-1">1級</span></div>
               <div class="qual-count">5名在籍</div>
+            </div>
+          </div>
+        </div>
+        <div class="qual-block">
+          <div class="qual-block-header">
+            <div class="qual-block-icon icon-bg-green">🌳</div>
+            <div class="qual-block-name">その他専門資格</div>
+          </div>
+          <div class="qual-rows">
+            <div class="qual-row">
+              <div class="qual-name">街路樹剪定枝</div>
+              <div class="qual-grade"><span class="grade-badge grade-special">専門</span></div>
+              <div class="qual-count">3名在籍</div>
             </div>
           </div>
         </div>
