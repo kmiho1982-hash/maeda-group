@@ -490,37 +490,66 @@
     /* PRESIDENT GREETING */
     .president-section {
       background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-      padding: 100px 40px;
+      padding: 120px 40px;
     }
     .president-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 450px 1fr;
-      gap: 80px;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
       align-items: center;
     }
+    /* 写真を主役にする */
     .president-photo {
       position: relative;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 20px;
     }
     .president-photo img {
       width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-      border: 4px solid #fff;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+      filter: brightness(0.9);
     }
+    .president-photo:hover img {
+      transform: scale(1.1);
+    }
+    /* オーバーレイで高級感 */
+    .president-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    }
+    /* ラベルを"タグ風"に変更 */
     .president-photo-label {
       position: absolute;
-      bottom: 20px;
+      top: 20px;
       left: 20px;
-      background: rgba(45, 106, 79, 0.95);
+      background: rgba(255,255,255,0.9);
+      color: #1b4332;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+    /* 名前を写真上に載せる(これ大事) */
+    .president-name {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
       color: #fff;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      z-index: 2;
     }
     .president-content .section-label {
       color: #2d6a4f;
@@ -531,15 +560,15 @@
     }
     .president-content h2 {
       font-family: 'Shippori Mincho', serif;
-      font-size: 2rem;
+      font-size: 2.4rem;
       color: #1b4332;
-      margin-bottom: 24px;
+      margin-bottom: 30px;
       font-weight: 600;
       letter-spacing: 0.05em;
     }
     .president-content p {
-      font-size: 1rem;
-      line-height: 2;
+      font-size: 1.05rem;
+      line-height: 2.1;
       color: #333;
       margin-bottom: 20px;
     }
@@ -667,6 +696,8 @@
       .nav-item { font-size: 0.75rem; padding: 13px 14px; }
       .works-grid { grid-template-columns: 1fr; }
       .work-card.large { grid-row: span 1; }
+      .president-inner { grid-template-columns: 1fr; gap: 50px; }
+      .president-photo { height: 380px; }
       .recruit-inner { grid-template-columns: 1fr; gap: 32px; }
       .recruit-img { display: none; }
       .qual-grid { grid-template-columns: 1fr; }
@@ -764,7 +795,7 @@
           <div class="service-details">公園管理から個人宅の庭園まで、豊富な経験と確かな技術で、美しく健全な緑の環境を創造・維持します。</div>
         </div>
         <div class="service-card">
-          <h3>公園設備工事</h3>
+          <h3>公園整備工事</h3>
           <p>大小遊具設置、ベンチ・パーゴラなどの公園施設打設、舗装工事など、公園に関わる工事全般に対応。</p>
           <div class="service-details">安全性と機能性を第一に、子どもから大人まで楽しめる公共空間づくりを実現します。</div>
         </div>
@@ -821,7 +852,7 @@
           <div class="equipment-item">
             <div class="equipment-num">7</div>
             <div class="equipment-unit">台</div>
-            <div class="equipment-name">ユンボ</div>
+            <div class="equipment-name">パワーショベル</div>
           </div>
           <div class="equipment-item">
             <div class="equipment-num">1</div>
@@ -980,16 +1011,17 @@
     <div class="president-inner">
       <div class="president-photo">
         <img src="社長.png" alt="代表取締役 前田">
-        <div class="president-photo-label">代表取締役</div>
+        <div class="president-photo-label">PRESIDENT</div>
+        <div class="president-name">前田</div>
       </div>
       <div class="president-content">
         <div class="section-label">MESSAGE</div>
         <h2>代表挨拶</h2>
         <p>前田建設グループは、創業から50年以上にわたり、造園・土木・建設の分野で地域社会に貢献してまいりました。官公庁から民間まで、数多くのプロジェクトを通じて培ってきた確かな技術力と実績は、お客様からの信頼の証であると自負しております。</p>
         <p>しかし、これまでの成功に甘んじることなく、私たちは常に前を向いています。環境との共生、持続可能な社会の実現、そして次世代への技術継承。これらの課題に真摯に向き合いながら、前田グループは新たな挑戦を続けてまいります。</p>
-        <p>グループ6社が一体となり、それぞれの強みを活かしながら、お客様のニーズに最適なソリューションを提供する。そして、自社処分場での木質廃材リサイクルなど、循環型社会の実現にも貢献する。これが、私たちの目指す未来です。</p>
+        <p>グループ5社が一体となり、それぞれの強みを活かしながら、お客様のニーズに最適なソリューションを提供する。そして、自社処分場での木質廃材リサイクルなど、循環型社会の実現にも貢献する。これが、私たちの目指す未来です。</p>
         <p>若い力、新しい視点を持つ仲間たちとともに、次の50年に向けて、さらなる飛躍を遂げたいと考えております。</p>
-        <div class="president-signature">前田建設グループ　代表取締役　前田</div>
+        <div class="president-signature">前田建設グループ　代表　前田猛</div>
       </div>
     </div>
   </section>
